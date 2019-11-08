@@ -1,0 +1,60 @@
+# Uncomment the next line to define a global platform for your project
+ platform :ios, '9.0'
+
+target 'RKBaseLibs' do
+  inhibit_all_warnings!
+
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  # Pods for RKBaseLibs
+    pod 'DACircularProgress', '~> 2.3.1'
+    pod 'AFNetworking', '~> 2.6'
+    pod 'MBProgressHUD','1.1.0'
+    pod 'Nimbus','1.3.0'
+    pod 'SSKeychain','1.2.3'
+    pod 'Masonry','1.1.0'
+    pod 'Mantle', '1.5.4'
+    pod 'XMLDictionary','1.4'
+    pod 'FlatUIKit','1.6'
+    pod '320Categories', '~> 0.2.2'
+    pod 'JHChainableAnimations', '~> 2.0.2'
+    pod 'UITableView+FDTemplateLayoutCell', '~> 1.4'
+    pod 'YYKit', '~> 1.0.9'
+    pod 'FMDB', '~> 2.6.2'
+    pod 'DLAlertView','~>1.2.5'
+    pod 'SDWebImage'
+    pod 'FLAnimatedImage', '~> 1.0.12'
+    pod 'AXBadgeView'
+    pod 'IQKeyboardManager'
+    # -------------友盟---------------
+    #友盟统计
+  #
+  #  pod 'UMCCommon'
+  #  pod 'UMCSecurityPlugins'
+  #  pod 'UMCAnalytics'
+
+    pod 'GTMBase64', '~> 1.0.0'
+    pod 'GCDTimer'
+    pod 'UIButton-LXLayout', '~> 0.2'
+    pod 'TZImagePickerController', '~> 3.2.1'
+
+    # UIViewController系统自带返回按钮拦截
+    pod 'BackButtonHandler', '~> 1.0.0'
+  # 仿微信悬浮球
+  #  pod 'JPSuspensionEntrance', '~> 1.0.1'
+    pod 'WQConsole', '~> 1.0.0'
+    pod 'XHInputView'
+    pod 'YCDownloadSession', '~> 2.0.3', :subspecs => ['Core', 'Mgr']
+    
+  target 'RKBaseLibsTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'RKBaseLibsUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <color name="text.major">#343434</color>
+    <color name="text.minor">#808080</color>
+    <color name="main.sub">#FF6262</color>
+    <color name="main">#121a2f</color>
+    <color name="separator">#dfdfdf</color>
+    <color name="tableView.bg">#f8f8f8</color>
+    <color name="tableview.bg">#f8f8f8</color>
+    <color name="unread.bg">#f53422</color>
+    <color name="text.link">#00b9f5</color>
+    <color name="text.green">#32b01c</color>
+    <color name="bg.green">#42e15e</color>
+    <color name="text.placeholder">#acacac</color>
+    <color name="text.money">#84272D</color>
+    <color name="point.red">#fb2025</color>
+    <color name="progress.green">#5cc130</color>
+    
+</resources>
