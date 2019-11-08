@@ -7,9 +7,9 @@
 //
 
 #import "HPFileManager.h"
-#import <SDWebImageDownloader.h>
-#import <SDImageCachesManager.h>
-#import <SDImageCache.h>
+#import <SDWebImage/SDWebImageDownloader.h>
+#import <SDWebImage/SDImageCachesManager.h>
+#import <SDWebImage/SDImageCache.h>
 
 @implementation HPFileManager
 
