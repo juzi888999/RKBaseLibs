@@ -6,8 +6,8 @@
 //  Copyright 2010 d3i. All rights reserved.
 //
 
-#import <SDWebImageDownloader.h>
-#import <SDImageCachesManager.h>
+#import <SDWebImage/SDWebImageDownloader.h>
+#import <SDWebImage/SDImageCachesManager.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "MWPhoto.h"
 #import "MWPhotoBrowser.h"
