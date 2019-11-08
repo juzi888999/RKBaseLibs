@@ -8,7 +8,7 @@
 
 #import "BYPopController.h"
 #import <JHChainableAnimations/JHChainableAnimations.h>
-#import <UIImage+YYAdd.h>
+#import <YYKit/UIImage+YYAdd.h>
 
 @interface BYPopController()
 @property (strong,nonatomic) BYPopBackgroundView * backgroundView;
