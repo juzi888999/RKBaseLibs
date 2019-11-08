@@ -8,7 +8,6 @@
 
 #import "BaseViewController.h"
 #import "BYPageModel.h"
-#import <MJRefresh.h>
 
 @interface BYBasePageViewController : BaseViewController<BYPageProtocol>
 

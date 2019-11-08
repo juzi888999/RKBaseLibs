@@ -9,6 +9,18 @@
 #ifndef ClassesHeader_h
 #define ClassesHeader_h
 
+
+#import <YYKit/UIView+YYAdd.h>
+#import <MJRefresh/MJRefresh.h>
+#import <Masonry/Masonry.h>
+#import <_320Categories/TTCategoryHeader.h>
+#import <UITableView_FDTemplateLayoutCell/UITableView+FDTemplateLayoutCell.h>
+#import <UIButton_LXLayout/UIButton+LXLayout.h>
+#import <JHChainableAnimations/JHChainableAnimations.h>
+#import <WQConsole/WQConsole.h>
+#import <AXBadgeView/AXBadgeKit.h>
+#import <FlatUIKit/UIImage+FlatUI.h>
+
 #import "Logger.h"
 
 //NSString
@@ -18,44 +30,40 @@
 #import "NSString+Decimal.h"
 #import "NSString+TextSize.h"
 
+//UIView
 #import "UIView+GetViewController.h"
 #import "UIView+EmptyView.h"
-#import "UIViewController+Util.h"
 #import "UIView+Helper.h"
-#import <YYKit/UIView+YYAdd.h>
+
+#import "UIViewController+Util.h"
 
 #import "NetworkClient.h"
 #import "NetworkClient+RKBaseLibs.h"
 #import "HPRequest+UploadFile.h"
 
 #import "UIButton+WebCache.h"
-#import <MJRefresh.h>
-#import <Masonry/Masonry.h>
-#import <TTCategoryHeader.h>
+
 #import "HPTheme.h"
 #import "BaseViewController.h"
 #import "NSObject+Check.h"
 #import "UILabel+Helper.h"
 #import "UIGlobal.h"
 #import "HPPreference.h"
-#import <AXBadgeView/AXBadgeKit.h>
-#import <UIImage+FlatUI.h>
 #import "UIImageView+WebCache.h"
 #import "UIImage+Helper.h"
 
 //Nimbus
-#import <NITableViewActions.h>
-#import <NICellFactory.h>
-#import <NIMutableTableViewModel.h>
-#import <NICellCatalog.h>
+#import "NITableViewActions.h"
+#import "NICellFactory.h"
+#import "NIMutableTableViewModel.h"
+#import "NICellCatalog.h"
 
-//
 #import "BaseNavigationViewController.h"
 #import "BYBasePageViewController.h"
 #import "HPBaseTableViewCell.h"
 #import "BaseCollectionViewCell.h"
 #import "BaseCollectionReusableView.h"
-#import <UITableView+FDTemplateLayoutCell.h>
+
 #import "HPFileManager.h"
 #import "HPRequest+Operation.h"
 #import "BYInputAccessoryView.h"
@@ -63,7 +71,6 @@
 #import "BYPhotoBrowser.h"
 #import "SSWebViewController.h"
 #import "RKDeviceManager.h"
-#import <UIButton+LXLayout.h>
 
 #import "BaseWebViewController.h"
 //#import "UIViewController+ShouldAutorotate.h"
@@ -80,7 +87,5 @@
 
 //#import "XBChatRoomConversationViewController.h"
 //#import <JPSuspensionEntrance/JPSuspensionEntrance.h>
-#import <JHChainableAnimations/JHChainableAnimations.h>
-#import <WQConsole.h>
 
 #endif /* ClassesHeader_h */
