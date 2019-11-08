@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "RKBaseLibs"
-  spec.version      = "1.0.10"
+  spec.version      = "1.0.11"
   spec.summary      = "app的Object-C基础框架"
 
   # This description is used to generate tags and improve search results.

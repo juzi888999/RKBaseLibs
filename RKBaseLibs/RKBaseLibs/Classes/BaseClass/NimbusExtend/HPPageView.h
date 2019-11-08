@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <NIPagingScrollView.h>
+#import <Nimbus/NIPagingScrollView.h>
 
 @interface HPPageView : UIView <NIPagingScrollViewPage>
 

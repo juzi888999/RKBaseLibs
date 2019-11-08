@@ -7,8 +7,7 @@
 //
 
 #import "HPPagingViewController.h"
-#import <UIImage+FlatUI.h>
-#import <NIPagingScrollView+Subclassing.h>
+#import <Nimbus/NIPagingScrollView+Subclassing.h>
 #import "HPPageView.h"
 
 @interface HPPagingViewController () <NIPagingScrollViewDataSource, NIPagingScrollViewDelegate>
