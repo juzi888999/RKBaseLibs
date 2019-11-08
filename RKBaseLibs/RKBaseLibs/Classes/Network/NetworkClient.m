@@ -7,12 +7,7 @@
 
 #import "NetworkClient.h"
 #import "AFHTTPRequestOperationLogger.h"
-#import "HPFileManager.h"
-#import <GTMBase64/GTMBase64.h>
-#import "NSString+Json.h"
-#import "NSDate+InternetDateTime.h"
 #import "RKUUID.h"
-#import <NSDate+YYAdd.h>
 #import "HPJSONResponseSerializer.h"
 
 NSString *const KHPNetworkCustomErrorDomain = @"com.RKBaseLibs.networkService.error";
