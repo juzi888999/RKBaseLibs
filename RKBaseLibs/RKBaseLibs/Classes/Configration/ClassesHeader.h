@@ -20,6 +20,7 @@
 #import <WQConsole/WQConsole.h>
 #import <AXBadgeView/AXBadgeKit.h>
 #import <FlatUIKit/UIImage+FlatUI.h>
+#import <SDWebImage/UIButton+WebCache.h>
 
 #import "Logger.h"
 
@@ -41,7 +42,6 @@
 #import "NetworkClient+RKBaseLibs.h"
 #import "HPRequest+UploadFile.h"
 
-#import "UIButton+WebCache.h"
 
 #import "HPTheme.h"
 #import "BaseViewController.h"
@@ -78,14 +78,8 @@
 #import "DateTool.h"
 #import "BYPopController.h"
 #import "BYInputAccessoryView.h"
-//#import "XBGameManager.h"
-//#import "HybridNSURLProtocol.h"
 #import "SpacemanBlocks.h"
 
-//#import "XBChessClassHeader.h"
-
-
-//#import "XBChatRoomConversationViewController.h"
 //#import <JPSuspensionEntrance/JPSuspensionEntrance.h>
 
 #endif /* ClassesHeader_h */

@@ -11,7 +11,6 @@
 // 发布代码于最专业的源码分享网站: Code4App.com
 
 #import "PopoverView.h"
-#import <UIImage+FlatUI.h>
 
 #define kArrowHeight 10.f
 #define kArrowCurvature 6.f
