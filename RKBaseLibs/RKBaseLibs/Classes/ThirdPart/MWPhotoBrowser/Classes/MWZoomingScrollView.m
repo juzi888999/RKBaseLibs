@@ -13,7 +13,7 @@
 #import "MWPhoto.h"
 #import "MWPhotoBrowserPrivate.h"
 #import "UIImage+MWPhotoBrowser.h"
-#import <UIImage+GIF.h>
+#import <SDWebImage/UIImage+GIF.h>
 
 // Private methods and properties
 @interface MWZoomingScrollView () {
