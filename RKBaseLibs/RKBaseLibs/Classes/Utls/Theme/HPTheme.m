@@ -9,7 +9,6 @@
 #import <XMLDictionary/XMLDictionary.h>
 #import "UIColor+XMC.h"
 #import <YYKit/UIImage+YYAdd.h>
-#import <UIImage+FlatUI.h>
 
 @interface HPTheme ()
 
