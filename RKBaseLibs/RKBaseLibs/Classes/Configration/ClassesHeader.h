@@ -31,7 +31,7 @@
 #import "UIButton+WebCache.h"
 #import "MJRefresh.h"
 #import <Masonry/Masonry.h>
-#import <320Categories/TTCategoryHeader.h>
+#import <TTCategoryHeader.h>
 #import "HPTheme.h"
 #import "BaseViewController.h"
 #import "NSObject+Check.h"
@@ -55,7 +55,7 @@
 #import "HPBaseTableViewCell.h"
 #import "BaseCollectionViewCell.h"
 #import "BaseCollectionReusableView.h"
-#import <UITableView+FDTemplateLayoutCell/UITableView+FDTemplateLayoutCell.h>
+#import <UITableView+FDTemplateLayoutCell.h>
 #import "HPFileManager.h"
 #import "HPRequest+Operation.h"
 #import "BYInputAccessoryView.h"
@@ -66,7 +66,7 @@
 #import "BYPhotoBrowser.h"
 #import "SSWebViewController.h"
 #import "RKDeviceManager.h"
-#import <UIButton-LXLayout/UIButton+LXLayout.h>
+#import <UIButton+LXLayout.h>
 
 #import "BaseWebViewController.h"
 //#import "UIViewController+ShouldAutorotate.h"

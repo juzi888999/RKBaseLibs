@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "RKBaseLibs"
-  spec.version      = "0.0.1"
+  spec.version      = "1.0.0"
   spec.summary      = "app的Object-C基础框架"
 
   # This description is used to generate tags and improve search results.
@@ -79,7 +79,7 @@ Pod::Spec.new do |spec|
   #
 
   # spec.source       = { :git => "https://github.com/juzi888999/RKBaseLibs.git", :commit => "7b2d6d7655ff08bbb83cad84f343a9089d39704c" }
-  spec.source       = { :git => "https://github.com/juzi888999/RKBaseLibs.git", :tag => spec.version.to_s }
+  spec.source       = { :git => "https://github.com/juzi888999/RKBaseLibs.git", :tag => '#{spec.version}' }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -163,7 +163,7 @@ Pod::Spec.new do |spec|
   spec.dependency 'TZImagePickerController', '~> 3.2.1'
   spec.dependency 'BackButtonHandler', '~> 1.0.0'
   spec.dependency 'WQConsole', '~> 1.0.0'
-  spec.dependency 'XHInputView'
-  spec.dependency 'YCDownloadSession', '~> 2.0.3', :subspecs => ['Core', 'Mgr']
+  # spec.dependency 'XHInputView'
+  # spec.dependency 'YCDownloadSession', '~> 2.0.3', :subspecs => ['Core', 'Mgr']
 
 end
