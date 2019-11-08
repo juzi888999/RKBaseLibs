@@ -12,7 +12,7 @@
 #import <YYKit/NSObject+YYAdd.h>
 #import "BaseNavigationViewController.h"
 #import "UIImage+Tint.h"
-#import <UIViewController+BackButtonHandler.h>
+#import <BackButtonHandler/UIViewController+BackButtonHandler.h>
 
 @interface BaseViewController ()
 
