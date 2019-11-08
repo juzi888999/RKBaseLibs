@@ -9,7 +9,6 @@
 #import "BaseNavigationViewController.h"
 #import "BaseViewController.h"
 #import "UIImage+Tint.h"
-#import "AppDelegate.h"
 //#import "UINavigationController+FDFullscreenPopGesture.h"
 #import "RKDeviceManager.h"
 

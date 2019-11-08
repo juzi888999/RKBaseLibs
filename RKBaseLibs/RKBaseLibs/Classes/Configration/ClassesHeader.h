@@ -29,7 +29,7 @@
 #import "HPRequest+UploadFile.h"
 
 #import "UIButton+WebCache.h"
-#import "MJRefresh.h"
+#import <MJRefresh.h>
 #import <Masonry/Masonry.h>
 #import <TTCategoryHeader.h>
 #import "HPTheme.h"
@@ -60,9 +60,6 @@
 #import "HPRequest+Operation.h"
 #import "BYInputAccessoryView.h"
 #import "HPBlockPickerView.h"
-
-#import "AppDelegate.h"
-
 #import "BYPhotoBrowser.h"
 #import "SSWebViewController.h"
 #import "RKDeviceManager.h"

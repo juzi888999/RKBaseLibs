@@ -251,7 +251,7 @@
     //            msg = [NSString stringWithFormat:@"未知错误(%ld)", (long)error.code];
     //        return [UIGlobal showMessage:msg];
     if (!view) {
-        view = RKAppDelegate.window;
+        view = [UIApplication sharedApplication].windows.firstObject;
     }
     NSDictionary * userInfo = [NSDictionary checkDictionary:error.userInfo];
     NSString * flag = userInfo[KXBSessionExpired];

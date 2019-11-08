@@ -7,7 +7,6 @@
 //
 
 #import "BYBasePageViewController.h"
-#import "MJRefresh.h"
 
 @interface BYBasePageViewController ()
 

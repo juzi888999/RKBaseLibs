@@ -8,7 +8,7 @@
 
 #import "BaseViewController.h"
 #import "BYPageModel.h"
-#import "MJRefreshFooterExtension.h"
+#import <MJRefresh.h>
 
 @interface BYBasePageViewController : BaseViewController<BYPageProtocol>
 
@@ -24,22 +24,22 @@
 @property (assign,nonatomic) BOOL shouldShowRequestFailureView;
 
 - (NSString *)customEmptyViewTip;
-@property (copy,nonatomic) NSString *(^customEmptyViewTipBlock)();
+@property (copy,nonatomic) NSString *(^customEmptyViewTipBlock)(void);
 - (UIColor *)customEmptyViewTipTextColor;
 - (NSString *)customEmptyViewIcon;
-@property (copy,nonatomic) NSString *(^customEmptyViewIconBlock)();
+@property (copy,nonatomic) NSString *(^customEmptyViewIconBlock)(void);
 
 - (void)addCustomEmptyView;
 - (CGRect)emptyViewFrame;
 - (void)showEmptyViewIfNeed;
-@property (copy,nonatomic) CGRect(^emptyViewFrameBlock)();
+@property (copy,nonatomic) CGRect(^emptyViewFrameBlock)(void);
 
-@property (copy,nonatomic) void(^didFinishLoadDataBlock)();
-@property (copy,nonatomic) void(^didFailLoadDataBlock)();
+@property (copy,nonatomic) void(^didFinishLoadDataBlock)(void);
+@property (copy,nonatomic) void(^didFailLoadDataBlock)(void);
 
-@property (copy,nonatomic) void(^willFirstLoadData)();
-@property (copy,nonatomic) void(^willPullDownRefresh)();
-@property (copy,nonatomic) void(^willLoadMoreData)();
+@property (copy,nonatomic) void(^willFirstLoadData)(void);
+@property (copy,nonatomic) void(^willPullDownRefresh)(void);
+@property (copy,nonatomic) void(^willLoadMoreData)(void);
 
 #pragma mark - BYPageProtocol
 @property (strong,nonatomic) BYPageModel * model;

@@ -46,7 +46,7 @@ target 'RKBaseLibs' do
     pod 'WQConsole', '~> 1.0.0'
     pod 'XHInputView'
     pod 'YCDownloadSession', '~> 2.0.3', :subspecs => ['Core', 'Mgr']
-#    pod 'MJRefresh', '~> 3.2.0'
+    pod 'MJRefresh', '~> 3.2.0'
   target 'RKBaseLibsTests' do
     inherit! :search_paths
     # Pods for testing

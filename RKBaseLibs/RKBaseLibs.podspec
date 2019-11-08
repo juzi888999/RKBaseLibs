@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "RKBaseLibs"
-  spec.version      = "1.0.0"
+  spec.version      = "1.0.1"
   spec.summary      = "app的Object-C基础框架"
 
   # This description is used to generate tags and improve search results.
@@ -79,7 +79,7 @@ Pod::Spec.new do |spec|
   #
 
   # spec.source       = { :git => "https://github.com/juzi888999/RKBaseLibs.git", :commit => "7b2d6d7655ff08bbb83cad84f343a9089d39704c" }
-  spec.source       = { :git => "https://github.com/juzi888999/RKBaseLibs.git", :tag => '#{spec.version}' }
+  spec.source       = { :git => "https://github.com/juzi888999/RKBaseLibs.git", :tag => spec.version.to_s}
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -110,7 +110,7 @@ Pod::Spec.new do |spec|
 
   # spec.resource  = "icon.png"
   # spec.resources = "Resources/*.png"
-  spec.resources = "RKBaseLibs/Classes/ThirdPart/**/*.bundle","RKBaseLibs/Classes/ThirdPart/**/**/*.bundle","RKBaseLibs/Classes/ThirdPart/**/**/**/*.bundle","RKBaseLibs/Classes/ThirdPart/**/*.png","RKBaseLibs/Classes/ThirdPart/**/**/*.png","RKBaseLibs/Classes/ThirdPart/**/**/**/*.png",
+  spec.resources = "RKBaseLibs/Classes/ThirdPart/**/*.bundle","RKBaseLibs/Classes/ThirdPart/**/**/*.bundle","RKBaseLibs/Classes/ThirdPart/**/**/**/*.bundle","RKBaseLibs/Classes/ThirdPart/NumberCalculate/resource/*.png","RKBaseLibs/Classes/ThirdPart/MWPhotoBrowser/Assets/*.png"
 
   # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
@@ -137,7 +137,7 @@ Pod::Spec.new do |spec|
   spec.requires_arc = true
 
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  # spec.dependency "JSONKit", "~> 1.4"
+
   spec.dependency 'DACircularProgress', '~> 2.3.1'
   spec.dependency 'AFNetworking', '~> 2.6'
   spec.dependency 'MBProgressHUD','1.1.0'
@@ -147,6 +147,7 @@ Pod::Spec.new do |spec|
   spec.dependency 'Mantle', '1.5.4'
   spec.dependency 'XMLDictionary','1.4'
   spec.dependency 'FlatUIKit','1.6'
+  spec.dependency 'MJRefresh', '~> 3.2.0'
   spec.dependency '320Categories', '~> 0.2.2'
   spec.dependency 'JHChainableAnimations', '~> 2.0.2'
   spec.dependency 'UITableView+FDTemplateLayoutCell', '~> 1.4'
@@ -163,7 +164,7 @@ Pod::Spec.new do |spec|
   spec.dependency 'TZImagePickerController', '~> 3.2.1'
   spec.dependency 'BackButtonHandler', '~> 1.0.0'
   spec.dependency 'WQConsole', '~> 1.0.0'
-  # spec.dependency 'XHInputView'
+  spec.dependency 'XHInputView'
   # spec.dependency 'YCDownloadSession', '~> 2.0.3', :subspecs => ['Core', 'Mgr']
 
 end
