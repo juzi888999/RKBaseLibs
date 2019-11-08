@@ -7,8 +7,7 @@
 //
 
 #import "BYBaseNavSegmentViewController.h"
-#import <UIImage+FlatUI.h>
-#import <NIPagingScrollView.h>
+#import <Nimbus/NIPagingScrollView.h>
 #import "HPPageView.h"
 #import "UISegmentedControl+Badge.h"
 
