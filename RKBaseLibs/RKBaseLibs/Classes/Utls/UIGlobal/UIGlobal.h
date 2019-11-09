@@ -54,6 +54,10 @@
 + (UIColor *)defaultBackgroundColor;
 + (BOOL)showCameraAuthAlertIfNeed;
 + (void)showChooseMapSheetWithAddress:(NSString *)address inViewController:(UIViewController *)viewController;
++ (DLAVAlertView *)showAlertWithContentView:(UIView *)contentView
+            title:(NSString *)title
+cancelButtonTitle:(NSString *)cancelButtonTitle otherButtonTitles:(NSString *)otherButtonTitle
+  completionBlock:(DLAVAlertViewCompletionHandler)completionHandler;
 
 @end
 

@@ -575,5 +575,34 @@
     }];
 }
 
-
++ (DLAVAlertView *)showAlertWithContentView:(UIView *)contentView
+                                      title:(NSString *)title
+                             cancelButtonTitle:(NSString *)cancelButtonTitle otherButtonTitles:(NSString *)otherButtonTitle
+                            completionBlock:(DLAVAlertViewCompletionHandler)completionHandler
+{
+    CGSize size = contentView.size;
+    DLAVAlertViewTheme *theme = [DLAVAlertViewTheme theme];
+    theme.contentViewMargins = DLAVTextControlMarginsMake(0, 0, 0, 0);
+    DLAVAlertView *alertView = [[DLAVAlertView alloc] initWithTitle:title message:nil delegate:nil cancelButtonTitle:cancelButtonTitle otherButtonTitles:otherButtonTitle, nil];
+    theme.backgroundColor = UIColor.whiteColor;
+    alertView.backgroundColor = UIColor.whiteColor;
+    UIView *mainView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, size.width ,size.height)];
+    alertView.minContentWidth = size.width;
+    alertView.dismissesOnBackdropTap = NO;
+    mainView.backgroundColor = UIColor.clearColor;
+    
+    DLAVAlertViewButtonTheme * otherButtonTheme = [DLAVAlertViewButtonTheme theme];
+    otherButtonTheme.textColor = HPColorForKey(@"main");
+    theme.primaryButtonTheme = otherButtonTheme;
+    
+    [alertView applyTheme:theme];
+    
+    [mainView addSubview:contentView];
+    [contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(mainView);
+    }];
+    alertView.contentView = mainView;
+    [alertView showWithCompletion:completionHandler];
+    return alertView;
+}
 @end
