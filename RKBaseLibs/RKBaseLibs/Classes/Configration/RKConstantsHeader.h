@@ -6,8 +6,8 @@
 //  Copyright © 2016 rk. All rights reserved.
 //
 
-#ifndef ConstantsHeader_h
-#define ConstantsHeader_h
+#ifndef RKConstantsHeader_h
+#define RKConstantsHeader_h
 
 static NSString * const API_KEY = @"";//自己服务端定的key
 

@@ -1,14 +1,13 @@
 //
-//  ClassesHeader.h
+//  RKClassesHeader.h
 //  RKBaseLibs 
 //
 //  Created by rk on 16/2/4.
 //  Copyright © 2016年 rk. All rights reserved.
 //
 
-#ifndef ClassesHeader_h
-#define ClassesHeader_h
-
+#ifndef RKClassesHeader_h
+#define RKClassesHeader_h
 
 #import <YYKit/UIView+YYAdd.h>
 #import <YYKit/NSDate+YYAdd.h>
@@ -52,7 +51,6 @@
 #import "UIViewController+Util.h"
 
 #import "NetworkClient.h"
-#import "NetworkClient+RKBaseLibs.h"
 #import "HPRequest+UploadFile.h"
 
 

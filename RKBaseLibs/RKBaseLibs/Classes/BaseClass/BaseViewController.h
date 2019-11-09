@@ -21,7 +21,7 @@ typedef enum : NSUInteger {
 @property (copy,nonatomic) void(^viewDidDisappearBlock)(BOOL animated);
 @property (copy,nonatomic) void(^viewWillAppearBlock)(BOOL animated);
 @property (copy,nonatomic) void(^viewDidAppearBlock)(BOOL animated);
-@property (copy,nonatomic) void(^didTapBackBtnAction)();
+@property (copy,nonatomic) void(^didTapBackBtnAction)(void);
 
 @end
 

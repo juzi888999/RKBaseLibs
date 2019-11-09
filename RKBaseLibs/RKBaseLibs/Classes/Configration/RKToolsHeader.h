@@ -1,13 +1,13 @@
 //
-//  ToolsHeader.h
+//  RKToolsHeader.h
 //  RKBaseLibs
 //
 //  Created by rk on 15/8/27.
 //  Copyright (c) 2015年 rk. All rights reserved.
 //
 
-#ifndef haoHaiTao_ToolsHeader_h
-#define haoHaiTao_ToolsHeader_h
+#ifndef RKToolsHeader_h
+#define RKToolsHeader_h
 
 #ifndef weakify
     #if DEBUG
@@ -128,6 +128,7 @@ selector:_selector name:_name object:nil];
 [[NSNotificationCenter defaultCenter] postNotificationName:_name object:_object];
 
 #define RKAppDelegate ((AppDelegate *)([UIApplication sharedApplication].delegate))
+
 #endif
 //
 //// -------- 调试相关

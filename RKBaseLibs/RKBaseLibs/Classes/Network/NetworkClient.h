@@ -32,9 +32,35 @@ typedef  void ((^HPFailure)(NSError *error));
 
 + (instancetype)sharedInstance;
 
+//初始化接口域名ip，请在appdelegate didfinishlaunch 方法开头调用，
++ (void)initHosts;
 + (void)setServerHost:(NSString *)host;
 + (void)setImageHost:(NSString *)host;
 + (void)setVideoHost:(NSString *)host;
+
+//初始化网络请求管理对象
+- (AFHTTPRequestOperationManager*)httpManagerWithHost:(NSString*)host port:(NSString*)port;
+/*
+ 地址获取
+ @param stirng 路径path
+ */
++ (NSURL*)urlForString:(NSString*)string;
++ (NSURL*)imageUrlForString:(NSString*)string;
++ (NSURL *)videoUrlForString:(NSString *)string;
+
++ (void)sessionExpired:(NSDictionary *)userInfo;//登录失效的处理
++ (BOOL)isSuccessResponse:(HPResponseEntity*)responseObject;//判断网络请求是否成功的处理
++ (NSError*)errorForResponse:(HPResponseEntity*)responseObject;//判断失败的处理
++ (BOOL)shouldForwardError:(NSError*)error;//是否处理失败的处理
++ (BOOL)isCustomErrorFromServer:(NSError*)error;//判断是否是自定义的失败
+
++ (void)setHeaderField;//设置请求头
++ (NSString *)signWithParams:(NSArray *)params;//对参数进行签名的处理
+
++ (NSMutableDictionary*)commonParamsWithMethod:(NSString*)method;
++ (NSMutableDictionary*)commonParamsWithMethod:(NSString*)method path:(NSString *)path params:(id)params;
+- (NSURLSessionDownloadTask *)sessionDownloadWithUrl:(NSURL *)url success:(void (^)(NSURL *fileURL))success failure:(void (^)(NSError *error))failure;
+
 
 #pragma mark - 服务器时间与时间差
 
