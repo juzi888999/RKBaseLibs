@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "RKBaseLibs"
-  spec.version      = "1.0.16"
+  spec.version      = "1.0.17"
   spec.summary      = "app的Object-C基础框架"
 
   # This description is used to generate tags and improve search results.
@@ -123,7 +123,7 @@ Pod::Spec.new do |spec|
 
   # spec.framework  = "SomeFramework"
   spec.compiler_flags = '-fno-modules'
-  spec.frameworks  = "UIKit"
+  spec.frameworks  = "UIKit","Foundation"
 
   # spec.library   = "iconv"
   # spec.libraries = "iconv", "xml2"
