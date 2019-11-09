@@ -12,6 +12,7 @@
 
 #import <YYKit/UIView+YYAdd.h>
 #import <MJRefresh/MJRefresh.h>
+#import <MJRefresh/MJRefreshAutoStateFooter.h>
 #import <Masonry/Masonry.h>
 #import <_320Categories/TTCategoryHeader.h>
 #import <UITableView_FDTemplateLayoutCell/UITableView+FDTemplateLayoutCell.h>
@@ -23,6 +24,14 @@
 #import <SDWebImage/UIButton+WebCache.h>
 #import <GTMBase64/GTMBase64.h>
 #import <YYKit/NSDate+YYAdd.h>
+
+//Nimbus
+#import "NITableViewActions.h"
+#import "NICellFactory.h"
+#import "NIMutableTableViewModel.h"
+#import "NICellCatalog.h"
+
+
 
 #import "Logger.h"
 
@@ -56,11 +65,6 @@
 #import "UIImageView+WebCache.h"
 #import "UIImage+Helper.h"
 
-//Nimbus
-#import "NITableViewActions.h"
-#import "NICellFactory.h"
-#import "NIMutableTableViewModel.h"
-#import "NICellCatalog.h"
 
 #import "BaseNavigationViewController.h"
 #import "BYBasePageViewController.h"
