@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "RKBaseLibs"
-  spec.version      = "1.0.17"
+  spec.version      = "1.0.18"
   spec.summary      = "app的Object-C基础框架"
 
   # This description is used to generate tags and improve search results.
@@ -143,7 +143,8 @@ Pod::Spec.new do |spec|
   spec.dependency 'AFNetworking', '~> 2.6'
   spec.dependency 'MBProgressHUD','1.1.0'
   spec.dependency 'Nimbus','1.3.0'
-  spec.dependency 'SSKeychain','1.2.3'
+  # spec.dependency 'SSKeychain','1.2.3'
+  spec.dependency 'SAMKeychain', '~> 1.5.3'
   spec.dependency 'Masonry','1.1.0'
   spec.dependency 'Mantle', '1.5.4'
   spec.dependency 'XMLDictionary','1.4'

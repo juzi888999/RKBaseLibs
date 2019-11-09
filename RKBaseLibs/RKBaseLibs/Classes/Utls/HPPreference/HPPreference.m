@@ -6,7 +6,7 @@
 //
 
 #import "HPPreference.h"
-#import <SSKeychain/SSKeychain.h>
+#import <SAMKeychain/SAMKeychain.h>
 
 #define KPreferenceKeyAutoLogin @"auto-login"
 #define KPreferenceKeyFirstRun @"first-run"
@@ -92,22 +92,22 @@
 - (void)deleteAccount:(NSString*)account
 {
     if (account.length > 0)
-        [SSKeychain deletePasswordForService:KPreferenceServiceName account:account];
+        [SAMKeychain deletePasswordForService:KPreferenceServiceName account:account];
 }
 
 - (NSString*)lastValidAccount
 {
     NSString *name = [[NSUserDefaults standardUserDefaults] valueForKey:KPreferenceServiceLastLoginUserName];
-    NSArray *accounts = [SSKeychain accountsForService:KPreferenceServiceName];
-    if ([[accounts valueForKey:kSSKeychainAccountKey] containsObject:name])
+    NSArray *accounts = [SAMKeychain accountsForService:KPreferenceServiceName];
+    if ([[accounts valueForKey:kSAMKeychainAccountKey] containsObject:name])
         return name;
     return nil;
 }
 
 - (NSArray *)accounts
 {
-    NSArray *accounts = [SSKeychain accountsForService:KPreferenceServiceName];
-    return [accounts valueForKey:kSSKeychainAccountKey];
+    NSArray *accounts = [SAMKeychain accountsForService:KPreferenceServiceName];
+    return [accounts valueForKey:kSAMKeychainAccountKey];
 }
 
 - (NSString *)lastValidPassword
@@ -115,7 +115,7 @@
     NSString *account = [self lastValidAccount];
     if (account.length == 0)
         return nil;
-    return [SSKeychain passwordForService:KPreferenceServiceName account:account];
+    return [SAMKeychain passwordForService:KPreferenceServiceName account:account];
 }
 
 - (void)setLastLoginUserName:(NSString *)name
@@ -141,7 +141,7 @@
 
 - (void)setPassword:(NSString *)password forAccount:(NSString *)account
 {
-    [SSKeychain setPassword:password forService:KPreferenceServiceName account:account];
+    [SAMKeychain setPassword:password forService:KPreferenceServiceName account:account];
     [self setLastLoginUserName:account];
 }
 
