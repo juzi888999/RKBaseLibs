@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "RKBaseLibs"
-  spec.version      = "1.0.20"
+  spec.version      = "1.0.21"
   spec.summary      = "app的Object-C基础框架"
 
   # This description is used to generate tags and improve search results.
@@ -90,7 +90,7 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "RKBaseLibs/RKBaseLibs/RKBaseLibs/Classes/*.{h,m}", "RKBaseLibs/RKBaseLibs/RKBaseLibs/Classes/**/*.{h,m}","RKBaseLibs/RKBaseLibs/RKBaseLibs/Classes/**/**/*.{h,m}","RKBaseLibs/RKBaseLibs/RKBaseLibs/Classes/**/**/**/*.{h,m}","RKBaseLibs/RKBaseLibs/RKBaseLibs/Classes/**/**/**/**/*.{h,m}"
+  spec.source_files  = "RKBaseLibs/RKBaseLibs/Classes/*.{h,m}", "RKBaseLibs/RKBaseLibs/Classes/**/*.{h,m}","RKBaseLibs/RKBaseLibs/Classes/**/**/*.{h,m}","RKBaseLibs/RKBaseLibs/Classes/**/**/**/*.{h,m}","RKBaseLibs/RKBaseLibs/Classes/**/**/**/**/*.{h,m}"
   spec.exclude_files = "RKBaseLibs/Exclude"
   spec.prefix_header_file = "RKBaseLibs/Classes/Configration/PrefixHeader.pch"
 
@@ -110,7 +110,7 @@ Pod::Spec.new do |spec|
 
   # spec.resource  = "icon.png"
   # spec.resources = "Resources/*.png"
-  spec.resources = "RKBaseLibs/RKBaseLibs/RKBaseLibs/Classes/ThirdPart/**/*.bundle","RKBaseLibs/RKBaseLibs/RKBaseLibs/Classes/ThirdPart/**/**/*.bundle","RKBaseLibs/RKBaseLibs/RKBaseLibs/Classes/ThirdPart/**/**/**/*.bundle","RKBaseLibs/RKBaseLibs/RKBaseLibs/Classes/ThirdPart/NumberCalculate/resource/*.png","RKBaseLibs/RKBaseLibs/RKBaseLibs/Classes/ThirdPart/MWPhotoBrowser/Assets/*.png"
+  spec.resources = "RKBaseLibs/RKBaseLibs/RKBaseLibs/Classes/ThirdPart/**/*.bundle","RKBaseLibs/RKBaseLibs/Classes/ThirdPart/**/**/*.bundle","RKBaseLibs/RKBaseLibs/Classes/ThirdPart/**/**/**/*.bundle","RKBaseLibs/RKBaseLibs/Classes/ThirdPart/NumberCalculate/resource/*.png","RKBaseLibs/RKBaseLibs/Classes/ThirdPart/MWPhotoBrowser/Assets/*.png"
 
   # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
