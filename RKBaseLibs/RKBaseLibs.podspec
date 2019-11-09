@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "RKBaseLibs"
-  spec.version      = "1.0.21"
+  spec.version      = "1.0.22"
   spec.summary      = "app的Object-C基础框架"
 
   # This description is used to generate tags and improve search results.
@@ -92,7 +92,7 @@ Pod::Spec.new do |spec|
 
   spec.source_files  = "RKBaseLibs/RKBaseLibs/Classes/*.{h,m}", "RKBaseLibs/RKBaseLibs/Classes/**/*.{h,m}","RKBaseLibs/RKBaseLibs/Classes/**/**/*.{h,m}","RKBaseLibs/RKBaseLibs/Classes/**/**/**/*.{h,m}","RKBaseLibs/RKBaseLibs/Classes/**/**/**/**/*.{h,m}"
   spec.exclude_files = "RKBaseLibs/Exclude"
-  spec.prefix_header_file = "RKBaseLibs/Classes/Configration/PrefixHeader.pch"
+  spec.prefix_header_file = "RKBaseLibs/RKBaseLibs/Classes/Configration/PrefixHeader.pch"
 
   # spec.source_files  = "Classes", "Classes/**/*.{h,m}"
   # spec.exclude_files = "Classes/Exclude"
