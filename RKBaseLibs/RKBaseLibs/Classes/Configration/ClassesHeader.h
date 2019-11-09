@@ -14,7 +14,7 @@
 #import <MJRefresh/MJRefresh.h>
 #import <MJRefresh/MJRefreshAutoStateFooter.h>
 #import <Masonry/Masonry.h>
-#import <_320Categories/TTCategoryHeader.h>
+#import "TTCategoryHeader.h"
 #import <UITableView_FDTemplateLayoutCell/UITableView+FDTemplateLayoutCell.h>
 #import <UIButton_LXLayout/UIButton+LXLayout.h>
 #import <JHChainableAnimations/JHChainableAnimations.h>
