@@ -8,7 +8,7 @@
 
 #import "BYPageModel.h"
 
-@interface MAdvertisementEntity : HPEntity
+@interface RKAdvertisementEntity : HPEntity
 
 @property (strong,nonatomic) NSString * title;
 @property (strong,nonatomic) NSString * remark;
@@ -26,13 +26,13 @@
 
 @end
 
-@interface MAdvertisementRequest : HPPageRequest
+@interface RKAdvertisementRequest : HPPageRequest
 //位置(1:app启动页,2:首页,3:频道,4:发现,5:我的,6:视频详情,7:视频)
 @property (strong,nonatomic) NSString * location;
 
 @end
 
-@interface MAdvertisementModel : BYPageModel
+@interface RKAdvertisementModel : BYPageModel
 
 + (instancetype)shareInstance;//视频广告用
 @property (strong,nonatomic) NSMutableArray * adList;

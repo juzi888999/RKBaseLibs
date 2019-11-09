@@ -228,7 +228,7 @@ NSString *const KXBSessionExpired   = @"sessionExpired";
 //    [[NetworkClient sharedInstance]setHeaderFieldWithDic:@{@"imeiType":@"ios"}];
 }
 
-- (void)setHeaderFieldWithDic:(NSDictionary <NSString * ,NSString *>*)dic
++ (void)setHeaderFieldWithDic:(NSDictionary <NSString * ,NSString *>*)dic
 {
     AFHTTPRequestOperationManager *manager = [NetworkClient sharedInstance].httpManager;
     [dic enumerateKeysAndObjectsUsingBlock:^(NSString *  _Nonnull key, NSString *  _Nonnull obj, BOOL * _Nonnull stop) {

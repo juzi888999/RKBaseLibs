@@ -55,6 +55,7 @@ typedef  void ((^HPFailure)(NSError *error));
 + (BOOL)isCustomErrorFromServer:(NSError*)error;//判断是否是自定义的失败
 
 + (void)setHeaderField;//设置请求头
++ (void)setHeaderFieldWithDic:(NSDictionary <NSString * ,NSString *>*)dic;
 + (NSString *)signWithParams:(NSArray *)params;//对参数进行签名的处理
 
 + (NSMutableDictionary*)commonParamsWithMethod:(NSString*)method;

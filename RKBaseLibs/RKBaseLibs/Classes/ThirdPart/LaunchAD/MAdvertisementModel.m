@@ -8,24 +8,24 @@
 
 #import "MAdvertisementModel.h"
 
-@implementation MAdvertisementEntity
+@implementation RKAdvertisementEntity
 
 @end
 
-@implementation MAdvertisementRequest
+@implementation RKAdvertisementRequest
 
 @end
 
-@implementation MAdvertisementModel
+@implementation RKAdvertisementModel
 
-static MAdvertisementModel *_instance = nil;
+static RKAdvertisementModel *_instance = nil;
 
 + (instancetype)shareInstance
 {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _instance = [[MAdvertisementModel alloc] init];
-        MAdvertisementRequest * req = [[MAdvertisementRequest alloc]init];
+        _instance = [[RKAdvertisementModel alloc] init];
+        RKAdvertisementRequest * req = [[RKAdvertisementRequest alloc]init];
         req.location = @"7";
         _instance.request = req;
     });
@@ -48,7 +48,7 @@ static MAdvertisementModel *_instance = nil;
 
 -(Class)objectClass
 {
-    return [MAdvertisementEntity class];
+    return [RKAdvertisementEntity class];
 }
 
 -(HPTableModelHttpMethod)httpMethod

@@ -8,7 +8,6 @@
 
 #import "BYPageModel.h"
 
-typedef void (^LoadingDataCallback)(NSArray *, NSError *);
 
 @implementation BYPageModel
 
@@ -141,7 +140,7 @@ typedef void (^LoadingDataCallback)(NSArray *, NSError *);
             }
         }];
     }else if (self.httpMethod == HPTableModelHttpMethodPost){
-        self.op = [[NetworkClient sharedInstance] rawPostWithPath:[self relativePath] params:params success:^(id responseObject) {
+        self.op = [[NetworkClient sharedInstance] postWithPath:[self relativePath] params:params success:^(id responseObject) {
             @strongify(self);
             if (self) {
                 self.isLoading = NO;
@@ -231,7 +230,7 @@ typedef void (^LoadingDataCallback)(NSArray *, NSError *);
 {
     self.isLoading = NO;
     BOOL more = [dic[@"more"] boolValue];
-    LoadingDataCallback block = dic[@"block"];
+    RKLoadingDataCallback block = dic[@"block"];
     //    NSArray *array = [self entitiesParsedFromResponseObject:nil];
     //    array = [self entitiesParsedFromListData:array];
     NSMutableArray *array = [NSMutableArray array];
@@ -257,7 +256,7 @@ typedef void (^LoadingDataCallback)(NSArray *, NSError *);
     }
 }
 
-- (void)loadLocalDataWithblock:(LoadingDataCallback)block
+- (void)loadLocalDataWithblock:(RKLoadingDataCallback)block
 {
     self.isLoading = NO;
     //    NSArray *array = [self entitiesParsedFromResponseObject:nil];

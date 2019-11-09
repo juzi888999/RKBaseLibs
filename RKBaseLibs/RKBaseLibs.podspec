@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "RKBaseLibs"
-  spec.version      = "1.0.27"
+  spec.version      = "1.0.31"
   spec.summary      = "app的Object-C基础框架"
 
   # This description is used to generate tags and improve search results.
@@ -78,8 +78,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  # spec.source       = { :git => "https://github.com/juzi888999/RKBaseLibs.git", :commit => "7b2d6d7655ff08bbb83cad84f343a9089d39704c" }
-  spec.source       = { :git => "https://github.com/juzi888999/RKBaseLibs.git", :tag => spec.version.to_s}
+
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -90,9 +89,17 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
+#远程仓库使用这个
+  spec.source       = { :git => "https://github.com/juzi888999/RKBaseLibs.git", :tag => spec.version.to_s}
   spec.source_files  = "RKBaseLibs/RKBaseLibs/Classes/*.{h,m}", "RKBaseLibs/RKBaseLibs/Classes/**/*.{h,m}","RKBaseLibs/RKBaseLibs/Classes/**/**/*.{h,m}","RKBaseLibs/RKBaseLibs/Classes/**/**/**/*.{h,m}","RKBaseLibs/RKBaseLibs/Classes/**/**/**/**/*.{h,m}"
   spec.exclude_files = "RKBaseLibs/Exclude"
   spec.prefix_header_file = "RKBaseLibs/RKBaseLibs/Classes/Configration/RKPrefixHeader.pch"
+
+#本地仓库使用这个
+  # spec.source       = { :git => "", :tag => spec.version.to_s}
+  # spec.source_files  = "RKBaseLibs/Classes/*.{h,m}", "RKBaseLibs/Classes/**/*.{h,m}","RKBaseLibs/Classes/**/**/*.{h,m}","RKBaseLibs/Classes/**/**/**/*.{h,m}","RKBaseLibs/Classes/**/**/**/**/*.{h,m}"
+  # spec.exclude_files = "RKBaseLibs/Exclude"
+  # spec.prefix_header_file = "RKBaseLibs/Classes/Configration/RKPrefixHeader.pch"
 
   # spec.source_files  = "Classes", "Classes/**/*.{h,m}"
   # spec.exclude_files = "Classes/Exclude"

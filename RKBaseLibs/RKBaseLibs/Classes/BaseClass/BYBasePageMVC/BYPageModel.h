@@ -10,6 +10,7 @@
 #import "HPRequest.h"
 
 static int kHPPageStart = 1;
+typedef void (^RKLoadingDataCallback)(NSArray *, NSError *);
 
 typedef NS_ENUM(NSUInteger, HPTableModelHttpMethod) {
     HPTableModelHttpMethodGet,
@@ -48,7 +49,7 @@ typedef enum : NSUInteger {
 @property (weak,nonatomic) UICollectionView * collectionView;
 
 @property (strong,nonatomic) HPPageRequest * request;
-@property (assign,nonatomic) HPTableModelHttpMethod httpMethod;//default is post
+@property (assign,nonatomic) HPTableModelHttpMethod httpMethod;
 @property (nonatomic, strong) AFHTTPRequestOperation *op;
 @property (strong,nonatomic) HPResponseEntity * responseEntity;
 @property (nonatomic, assign) BOOL isLoading;
@@ -84,6 +85,7 @@ typedef enum : NSUInteger {
 
 #pragma mark - protected
 - (void)performLazyLoading:(BOOL)more block:(void (^)(NSArray *, NSError *))block;
+- (void)loadLocalDataWithblock:(RKLoadingDataCallback)block;
 
 @end
 

@@ -54,14 +54,14 @@
 
 @interface LaunchAd()
 @property (assign,nonatomic) NSInteger currentIndex;
-@property (strong,nonatomic) MAdvertisementModel * model;
+@property (strong,nonatomic) RKAdvertisementModel * model;
 @end
 @implementation LaunchAd
 
 -(instancetype)init{
     if (self = [super init]) {
-        self.model = [[MAdvertisementModel alloc]init];
-        MAdvertisementRequest * req = [[MAdvertisementRequest alloc]init];
+        self.model = [[RKAdvertisementModel alloc]init];
+        RKAdvertisementRequest * req = [[RKAdvertisementRequest alloc]init];
         req.location = @"1";
         self.model.request = req;
         
@@ -86,7 +86,7 @@
         if (self) {
             [self stopTimer];
             if (!error) {
-                MAdvertisementEntity * object = arr.firstObject;
+                RKAdvertisementEntity * object = arr.firstObject;
                 if (object) {
                     NSArray * images = [[NSString checkString:object.img] componentsSeparatedByString:@","];
                     NSArray * links = [[NSString checkString:object.href] componentsSeparatedByString:@","];
