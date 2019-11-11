@@ -90,16 +90,16 @@ Pod::Spec.new do |spec|
   #
 
 #远程仓库使用这个
-  spec.source       = { :git => "https://github.com/juzi888999/RKBaseLibs.git", :tag => spec.version.to_s}
-  spec.source_files  = "RKBaseLibs/RKBaseLibs/Classes/*.{h,m}", "RKBaseLibs/RKBaseLibs/Classes/**/*.{h,m}","RKBaseLibs/RKBaseLibs/Classes/**/**/*.{h,m}","RKBaseLibs/RKBaseLibs/Classes/**/**/**/*.{h,m}","RKBaseLibs/RKBaseLibs/Classes/**/**/**/**/*.{h,m}"
-  spec.exclude_files = "RKBaseLibs/Exclude"
-  spec.prefix_header_file = "RKBaseLibs/RKBaseLibs/Classes/Configration/RKPrefixHeader.pch"
+  # spec.source       = { :git => "https://github.com/juzi888999/RKBaseLibs.git", :tag => spec.version.to_s}
+  # spec.source_files  = "RKBaseLibs/RKBaseLibs/Classes/*.{h,m}", "RKBaseLibs/RKBaseLibs/Classes/**/*.{h,m}","RKBaseLibs/RKBaseLibs/Classes/**/**/*.{h,m}","RKBaseLibs/RKBaseLibs/Classes/**/**/**/*.{h,m}","RKBaseLibs/RKBaseLibs/Classes/**/**/**/**/*.{h,m}"
+  # spec.exclude_files = "RKBaseLibs/Exclude"
+  # spec.prefix_header_file = "RKBaseLibs/RKBaseLibs/Classes/Configration/RKPrefixHeader.pch"
 
 #本地仓库使用这个
-  # spec.source       = { :git => "", :tag => spec.version.to_s}
-  # spec.source_files  = "RKBaseLibs/Classes/*.{h,m}", "RKBaseLibs/Classes/**/*.{h,m}","RKBaseLibs/Classes/**/**/*.{h,m}","RKBaseLibs/Classes/**/**/**/*.{h,m}","RKBaseLibs/Classes/**/**/**/**/*.{h,m}"
-  # spec.exclude_files = "RKBaseLibs/Exclude"
-  # spec.prefix_header_file = "RKBaseLibs/Classes/Configration/RKPrefixHeader.pch"
+  spec.source       = { :git => "", :tag => spec.version.to_s}
+  spec.source_files  = "RKBaseLibs/Classes/*.{h,m}", "RKBaseLibs/Classes/**/*.{h,m}","RKBaseLibs/Classes/**/**/*.{h,m}","RKBaseLibs/Classes/**/**/**/*.{h,m}","RKBaseLibs/Classes/**/**/**/**/*.{h,m}"
+  spec.exclude_files = "RKBaseLibs/Exclude"
+  spec.prefix_header_file = "RKBaseLibs/Classes/Configration/RKPrefixHeader.pch"
 
   # spec.source_files  = "Classes", "Classes/**/*.{h,m}"
   # spec.exclude_files = "Classes/Exclude"
@@ -169,7 +169,7 @@ Pod::Spec.new do |spec|
   spec.dependency 'IQKeyboardManager'
   spec.dependency 'GTMBase64', '~> 1.0.0'
   spec.dependency 'GCDTimer'
-  spec.dependency 'UIButton-LXLayout', '~> 0.2'
+  spec.dependency 'UIButton-LXLayoutExt', '~> 0.3'
   spec.dependency 'TZImagePickerController', '~> 3.2.1'
   spec.dependency 'BackButtonHandler', '~> 1.0.0'
   spec.dependency 'WQConsole', '~> 1.0.0'

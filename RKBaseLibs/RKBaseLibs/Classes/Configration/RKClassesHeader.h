@@ -16,7 +16,7 @@
 #import <Masonry/Masonry.h>
 #import "TTCategoryHeader.h"
 #import "UITableView+FDTemplateLayoutCell.h"
-#import "UIButton+LXLayout.h"
+#import "UIButton+LXLayoutExt.h"
 #import <JHChainableAnimations/JHChainableAnimations.h>
 #import <WQConsole/WQConsole.h>
 #import <AXBadgeView/AXBadgeKit.h>

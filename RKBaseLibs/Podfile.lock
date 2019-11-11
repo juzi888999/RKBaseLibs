@@ -96,7 +96,7 @@ PODS:
     - SDWebImage/Core (= 5.1.0)
   - SDWebImage/Core (5.1.0)
   - TZImagePickerController (3.2.2)
-  - UIButton-LXLayout (0.2)
+  - UIButton-LXLayoutExt (0.3)
   - "UITableView+FDTemplateLayoutCell (1.6)"
   - WQConsole (1.0.0)
   - XHInputView (1.1.1)
@@ -130,7 +130,7 @@ DEPENDENCIES:
   - SAMKeychain (~> 1.5.3)
   - SDWebImage
   - TZImagePickerController (~> 3.2.1)
-  - UIButton-LXLayout (~> 0.2)
+  - UIButton-LXLayoutExt (~> 0.3)
   - "UITableView+FDTemplateLayoutCell (~> 1.4)"
   - WQConsole (~> 1.0.0)
   - XHInputView
@@ -161,7 +161,6 @@ SPEC REPOS:
     - Nimbus
     - SDWebImage
     - TZImagePickerController
-    - UIButton-LXLayout
     - "UITableView+FDTemplateLayoutCell"
     - WQConsole
     - XHInputView
@@ -170,6 +169,7 @@ SPEC REPOS:
     - YYKit
   trunk:
     - SAMKeychain
+    - UIButton-LXLayoutExt
 
 SPEC CHECKSUMS:
   320Categories: ffc525e93e87c2991feb0bcdf036b0e87cb65a5d
@@ -193,7 +193,7 @@ SPEC CHECKSUMS:
   SAMKeychain: 483e1c9f32984d50ca961e26818a534283b4cd5c
   SDWebImage: fb387001955223213dde14bc08c8b73f371f8d8f
   TZImagePickerController: 44aa49cf35b1e88fe292be955e15b9003a5b1d83
-  UIButton-LXLayout: 98b766d3e00686581c8ca3b0ab3cd1cb7bc6e7a6
+  UIButton-LXLayoutExt: 8df8002dab479c9a995d5d634053cf0b3e54fec8
   "UITableView+FDTemplateLayoutCell": 5c949b4a5059c404b442926c0e80f81d10a2d66f
   WQConsole: e8b2e4d3e00e214405bc1d3e3b1044f6afc4dfd4
   XHInputView: d0dcd226f1df1d288326bdf8eb620221cc6ed3a7
@@ -201,6 +201,6 @@ SPEC CHECKSUMS:
   YCDownloadSession: a95e2449c6d01af8ba0d5977ce79a9f596f4245d
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 9c8e0d1d30855161fdcdcfd9e7c86e25c2c1fe21
+PODFILE CHECKSUM: d713ad6e780015c8094f9c1c14e1fe487d2ca11e
 
 COCOAPODS: 1.8.4

@@ -37,7 +37,7 @@ target 'RKBaseLibs' do
 
     pod 'GTMBase64', '~> 1.0.0'
     pod 'GCDTimer'
-    pod 'UIButton-LXLayout', '~> 0.2'
+    pod 'UIButton-LXLayoutExt', '~> 0.3'
     pod 'TZImagePickerController', '~> 3.2.1'
 
     # UIViewController系统自带返回按钮拦截
