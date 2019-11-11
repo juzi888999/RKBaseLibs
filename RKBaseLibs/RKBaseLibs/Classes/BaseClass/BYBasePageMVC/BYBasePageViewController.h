@@ -52,6 +52,7 @@
 - (void)didFinishLoadData;
 - (void)didFailLoadData;
 
+- (void)showError:(NSError *)error inView:(UIView *)view;
 #pragma mark -
 
 /*

@@ -21,22 +21,26 @@ typedef  void ((^HPFailure)(NSError *error));
 
 @interface NetworkClient : NSObject
 
+
+/*
+ ⚠️使用此类单例请注意，子类的单例和父类单例是两个不同的单例（不同的内存地址）
+ */
++ (instancetype)sharedInstance;
+
 @property (assign,nonatomic) BOOL hasNet;//是否有网络
 /*
  监听网络状态
  @param once 是否监听到状态马上停止监听
  */
-+ (void)checkNetworkStatus:(void(^)(bool has))hasNet once:(BOOL)once;
+- (void)checkNetworkStatus:(void(^)(bool has))hasNet once:(BOOL)once;
 
 @property (nonatomic, strong) AFHTTPRequestOperationManager *httpManager;
 
-+ (instancetype)sharedInstance;
-
 //初始化接口域名ip，请在appdelegate didfinishlaunch 方法开头调用，
-+ (void)initHosts;
-+ (void)setServerHost:(NSString *)host;
-+ (void)setImageHost:(NSString *)host;
-+ (void)setVideoHost:(NSString *)host;
+- (void)initHosts;
+- (void)setServerHost:(NSString *)host;
+- (void)setImageHost:(NSString *)host;
+- (void)setVideoHost:(NSString *)host;
 
 //初始化网络请求管理对象
 - (AFHTTPRequestOperationManager*)httpManagerWithHost:(NSString*)host port:(NSString*)port;
@@ -48,27 +52,26 @@ typedef  void ((^HPFailure)(NSError *error));
 + (NSURL*)imageUrlForString:(NSString*)string;
 + (NSURL *)videoUrlForString:(NSString *)string;
 
-+ (void)sessionExpired:(NSDictionary *)userInfo;//登录失效的处理
-+ (BOOL)isSuccessResponse:(HPResponseEntity*)responseObject;//判断网络请求是否成功的处理
-+ (NSError*)errorForResponse:(HPResponseEntity*)responseObject;//判断失败的处理
-+ (BOOL)shouldForwardError:(NSError*)error;//是否处理失败的处理
-+ (BOOL)isCustomErrorFromServer:(NSError*)error;//判断是否是自定义的失败
+- (void)sessionExpired:(NSDictionary *)userInfo;//登录失效的处理
+- (BOOL)isSuccessResponse:(HPResponseEntity*)responseObject;//判断网络请求是否成功的处理
+- (NSError*)errorForResponse:(HPResponseEntity*)responseObject;//判断失败的处理
+- (BOOL)shouldForwardError:(NSError*)error;//是否处理失败的处理
+- (BOOL)isCustomErrorFromServer:(NSError*)error;//判断是否是自定义的失败
 
-+ (void)setHeaderField;//设置请求头
-+ (void)setHeaderFieldWithDic:(NSDictionary <NSString * ,NSString *>*)dic;
-+ (NSString *)signWithParams:(NSArray *)params;//对参数进行签名的处理
-
-+ (NSMutableDictionary*)commonParamsWithMethod:(NSString*)method;
-+ (NSMutableDictionary*)commonParamsWithMethod:(NSString*)method path:(NSString *)path params:(id)params;
+- (void)setHeaderField;//设置请求头
+- (void)setHeaderFieldWithDic:(NSDictionary <NSString * ,NSString *>*)dic;
+- (NSString *)signWithParams:(NSArray *)params;//对参数进行签名的处理
+- (NSMutableDictionary*)commonParamsWithMethod:(NSString*)method;
+- (NSMutableDictionary*)commonParamsWithMethod:(NSString*)method path:(NSString *)path params:(id)params;
 - (NSURLSessionDownloadTask *)sessionDownloadWithUrl:(NSURL *)url success:(void (^)(NSURL *fileURL))success failure:(void (^)(NSError *error))failure;
 
 
 #pragma mark - 服务器时间与时间差
 
 //解析获取服务器与本地时间差
-+ (void)analysisServerDateTimeWithResponse:(NSHTTPURLResponse *)response;
+- (void)analysisServerDateTimeWithResponse:(NSHTTPURLResponse *)response;
 //调用方法analysisServerDateTimeWithResponse 之后再使用 getCurrentServerDate 才能获取准确的服务器时间，否则获取到的是本地时间
-+ (NSDate *)getCurrentServerDate;
+- (NSDate *)getCurrentServerDate;
 @property (assign,nonatomic) NSTimeInterval timeInterval;//服务器时间戳 - 本地时间戳
 - (void)resetTimeInterval;
 

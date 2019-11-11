@@ -42,7 +42,7 @@ NSString *const KXBSessionExpired   = @"sessionExpired";
     return shared;
 }
 
-+ (void)initHosts;
+- (void)initHosts;
 {
     //需要在Preprocessor Macros 的debug 和 release 模式增加 TARGET_RKBaseLibs=1
    #ifdef TARGET_RKBaseLibs
@@ -83,9 +83,9 @@ NSString *const KXBSessionExpired   = @"sessionExpired";
     return manager;
 }
 
-+ (void)sessionExpired:(NSDictionary *)userInfo
+- (void)sessionExpired:(NSDictionary *)userInfo
 {
-    [[NetworkClient sharedInstance].httpManager.operationQueue cancelAllOperations];
+    [self.httpManager.operationQueue cancelAllOperations];
 //    if ([[XBSession current] establish])
 //    {
 //        [[NSNotificationCenter defaultCenter] postNotificationName:kHPNotificationClientSessionExpired object:nil userInfo:userInfo];
@@ -94,17 +94,17 @@ NSString *const KXBSessionExpired   = @"sessionExpired";
 
 + (NSURL *)urlForString:(NSString *)string
 {
-     return [NetworkClient urlForString:string withType:RKBaseLibsURLTypeNormal];
+     return [[self class] urlForString:string withType:RKBaseLibsURLTypeNormal];
 }
 
 + (NSURL *)imageUrlForString:(NSString *)string
 {
-    return [NetworkClient urlForString:string withType:RKBaseLibsURLTypeNormal];
+    return [[self class] urlForString:string withType:RKBaseLibsURLTypeImage];
 }
 
 + (NSURL *)videoUrlForString:(NSString *)string
 {
-   return [NetworkClient urlForString:string withType:RKBaseLibsURLTypeVideo];
+   return [[self class] urlForString:string withType:RKBaseLibsURLTypeVideo];
 }
 
 + (NSURL *)urlForString:(NSString *)string withType:(RKBaseLibsURLType)type
@@ -144,7 +144,7 @@ NSString *const KXBSessionExpired   = @"sessionExpired";
       return url;
 }
 
-+ (NSString *)signWithParams:(NSArray *)params
+- (NSString *)signWithParams:(NSArray *)params
 {
      __block NSString * string = @"";
     [params enumerateObjectsUsingBlock:^(NSDictionary*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -156,7 +156,7 @@ NSString *const KXBSessionExpired   = @"sessionExpired";
     return [string md5Hash];
 }
 
-+ (NSError*)errorForResponse:(HPResponseEntity*)responseObject
+- (NSError*)errorForResponse:(HPResponseEntity*)responseObject
 {
 //    NSInteger code = [responseObject.code integerValue];
     NSString *errStr = responseObject.msg;
@@ -174,14 +174,13 @@ NSString *const KXBSessionExpired   = @"sessionExpired";
     return error;
 }
 
-
 - (void)systemMaintaining
 {
     [self.httpManager.operationQueue cancelAllOperations];
 //    [[NSNotificationCenter defaultCenter] postNotificationName:kHPNotificationSystemMaintaining object:nil userInfo:nil];
 }
 
-+ (BOOL)shouldForwardError:(NSError*)error
+- (BOOL)shouldForwardError:(NSError*)error
 {
     NSDictionary *userInfo = [error userInfo];
     if (error && [userInfo valueForKey:kSkipLocalErrorHandle] && [[userInfo valueForKey:kSkipLocalErrorHandle] boolValue])
@@ -189,17 +188,17 @@ NSString *const KXBSessionExpired   = @"sessionExpired";
     return YES;
 }
 
-+ (BOOL)isCustomErrorFromServer:(NSError*)error
+- (BOOL)isCustomErrorFromServer:(NSError*)error
 {
     return [error.domain isEqualToString:KHPNetworkCustomErrorDomain];
 }
 
-+ (id)resultForResponse:(HPResponseEntity*)responseObject
+- (id)resultForResponse:(HPResponseEntity*)responseObject
 {
     return responseObject.result;
 }
 
-+ (BOOL)isSuccessResponse:(HPResponseEntity*)responseObject
+- (BOOL)isSuccessResponse:(HPResponseEntity*)responseObject
 {
     if (responseObject && [[NSString checkString:responseObject.status] isEqualToString:@"200"]) {
         return YES;
@@ -207,7 +206,7 @@ NSString *const KXBSessionExpired   = @"sessionExpired";
     return NO;
 }
 
-+ (NSString *)queryStatementWithConditions:(NSDictionary *)conditions
+- (NSString *)queryStatementWithConditions:(NSDictionary *)conditions
 {
     NSArray *keys = [conditions allKeys];
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:keys.count];
@@ -217,8 +216,7 @@ NSString *const KXBSessionExpired   = @"sessionExpired";
     return [array componentsJoinedByString:@"&"];
 }
 
-
-+ (void)setHeaderField
+- (void)setHeaderField
 {
 //    NSString * token = [NSString checkString:[XBUser current].token];
 //    [[NetworkClient sharedInstance]setHeaderFieldWithDic:@{@"token":token}];
@@ -228,23 +226,24 @@ NSString *const KXBSessionExpired   = @"sessionExpired";
 //    [[NetworkClient sharedInstance]setHeaderFieldWithDic:@{@"imeiType":@"ios"}];
 }
 
-+ (void)setHeaderFieldWithDic:(NSDictionary <NSString * ,NSString *>*)dic
+- (void)setHeaderFieldWithDic:(NSDictionary <NSString * ,NSString *>*)dic
 {
-    AFHTTPRequestOperationManager *manager = [NetworkClient sharedInstance].httpManager;
+    AFHTTPRequestOperationManager *manager = self.httpManager;
     [dic enumerateKeysAndObjectsUsingBlock:^(NSString *  _Nonnull key, NSString *  _Nonnull obj, BOOL * _Nonnull stop) {
         [manager.requestSerializer setValue:obj forHTTPHeaderField:key];//ios
     }];
 }
 
-+ (NSMutableDictionary*)commonParamsWithMethod:(NSString*)method
+- (NSMutableDictionary*)commonParamsWithMethod:(NSString*)method
 {
     return nil;
 }
 
-+ (NSMutableDictionary*)commonParamsWithMethod:(NSString*)method path:(NSString *)path params:(id)params
+- (NSMutableDictionary*)commonParamsWithMethod:(NSString*)method path:(NSString *)path params:(id)params
 {
     return params;
 }
+
 - (NSURLSessionDownloadTask *)sessionDownloadWithUrl:(NSURL *)url success:(void (^)(NSURL *fileURL))success failure:(void (^)(NSError *error))failure
 {
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -308,7 +307,7 @@ NSString *const KXBSessionExpired   = @"sessionExpired";
 
 #pragma mark public
 
-+ (void)checkNetworkStatus:(void(^)(bool has))hasNet once:(BOOL)once
+- (void)checkNetworkStatus:(void(^)(bool has))hasNet once:(BOOL)once
 {
     //创建网络监听对象
     AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager sharedManager];
@@ -342,7 +341,7 @@ NSString *const KXBSessionExpired   = @"sessionExpired";
  解析获取服务器与本地时间差
  每次获取本地与服务器的时差都取绝值小的，请求接口越多次就越准
  */
-+ (void)analysisServerDateTimeWithResponse:(NSHTTPURLResponse *)response
+- (void)analysisServerDateTimeWithResponse:(NSHTTPURLResponse *)response
 {
     NSDictionary *allHeaders = response.allHeaderFields;
     NSString * dateServer = [NSString checkString:allHeaders[@"Date"]];
@@ -353,13 +352,13 @@ NSString *const KXBSessionExpired   = @"sessionExpired";
 //    NSString * str = [NSString stringWithFormat:@"服务器时间：%.0f000\n本地时间：%.0f000\n时间差：%.0f000",serverTimeStamp,localTimeStamp,timeInterval];
 //    [UIGlobal showAlertWithTitle:@"时间戳" message:str customizationBlock:NULL completionBlock:^(DLAVAlertView *alertView, NSInteger buttonIndex) {
 //    } cancelButtonTitle:@"知道了" otherButtonTitles:nil];
-    if ([NetworkClient sharedInstance].timeInterval == 0) {
-        [NetworkClient sharedInstance].timeInterval = timeInterval;
+    if (self.timeInterval == 0) {
+        self.timeInterval = timeInterval;
     }else{
         
-        NSTimeInterval minInterval = MIN(ABS([NetworkClient sharedInstance].timeInterval),ABS(timeInterval));
+        NSTimeInterval minInterval = MIN(ABS(self.timeInterval),ABS(timeInterval));
         if (minInterval == ABS(timeInterval)) {
-            [NetworkClient sharedInstance].timeInterval = timeInterval;
+            self.timeInterval = timeInterval;
         }
     }
 #ifdef DEBUG
@@ -368,7 +367,7 @@ NSString *const KXBSessionExpired   = @"sessionExpired";
 }
 
 //获取当前服务器时间
-+ (NSDate *)getCurrentServerDate
+- (NSDate *)getCurrentServerDate
 {
     NSDate * date = [NSDate dateWithTimeIntervalSinceNow:[NetworkClient sharedInstance].timeInterval];
     NSLog(@"\n当前服务器时间 ：%@\n 当前本地时间 ：%@",[DateTool rk_formatDateWithFormat:@"yyyy-MM-dd HH:mm:ss" timesp:date.timeIntervalSince1970],[DateTool rk_formatDateWithFormat:@"yyyy-MM-dd HH:mm:ss" timesp:[NSDate date].timeIntervalSince1970]);
@@ -379,20 +378,20 @@ NSString *const KXBSessionExpired   = @"sessionExpired";
 - (AFHTTPRequestOperation *)getWithPath:(NSString *)path params:(id)params success:(HPSuccess)success failure:(HPFailure)failure
 {
     AFHTTPRequestOperationManager *manager = self.httpManager;
-    [NetworkClient setHeaderField];
+    [self setHeaderField];
     if ([path hasPrefix:@"/"]) {
         path = [path substringFromIndex:1];
     }
     NSDictionary *temp = [NSDictionary checkDictionary:params];
-    [NetworkClient commonParamsWithMethod:@"GET" path:path params:params];
+    [self commonParamsWithMethod:@"GET" path:path params:params];
     WQLogInf(@"path : %@\nparams : %@",path,params);
     AFHTTPRequestOperation *op = [manager GET:path parameters:temp success:^(AFHTTPRequestOperation *operation, id responseObject) {
         WQLogInf(@"responseObject : %@",responseObject);
         
-        [NetworkClient analysisServerDateTimeWithResponse:operation.response];
+        [self analysisServerDateTimeWithResponse:operation.response];
         HPResponseEntity *res = [MTLJSONAdapter modelOfClass:[HPResponseEntity class] fromJSONDictionary:responseObject error:nil];
         res.op = operation;
-        if ([NetworkClient isSuccessResponse:res]){
+        if ([self isSuccessResponse:res]){
             if (success)
                 success(res);
         }else{
@@ -421,8 +420,8 @@ NSString *const KXBSessionExpired   = @"sessionExpired";
 //                    self.tokenRefreshOperation = nil;
 //                }];
 //            }else{
-                NSError *error = [NetworkClient errorForResponse:res];
-                if (failure && [NetworkClient shouldForwardError:error])
+                NSError *error = [self errorForResponse:res];
+                if (failure && [self shouldForwardError:error])
                     failure(error);
 //            }
         }
@@ -436,22 +435,22 @@ NSString *const KXBSessionExpired   = @"sessionExpired";
 - (AFHTTPRequestOperation*)postWithPath:(NSString*)path params:(id)params success:(HPSuccess)success failure:(HPFailure)failure
 {
     AFHTTPRequestOperationManager *manager = self.httpManager;
-    [[self class] setHeaderField];
+    [self setHeaderField];
     if ([path hasPrefix:@"/"]) {
         path = [path substringFromIndex:1];
     }
     
-    NSMutableDictionary *temp = [NetworkClient commonParamsWithMethod:@"POST" path:path params:params];
+    NSMutableDictionary *temp = [self commonParamsWithMethod:@"POST" path:path params:params];
     AFHTTPRequestOperation *op = [manager POST:path parameters:temp success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [NetworkClient analysisServerDateTimeWithResponse:operation.response];
+        [self analysisServerDateTimeWithResponse:operation.response];
         HPResponseEntity *res = [MTLJSONAdapter modelOfClass:[HPResponseEntity class] fromJSONDictionary:responseObject error:nil];
         res.op = operation;
-        if ([NetworkClient isSuccessResponse:res]){
+        if ([self isSuccessResponse:res]){
             if (success)
                 success(res);
         }else{
-            NSError *error = [NetworkClient errorForResponse:res];
-            if (failure && [NetworkClient shouldForwardError:error])
+            NSError *error = [self errorForResponse:res];
+            if (failure && [self shouldForwardError:error])
                 failure(error);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -480,20 +479,20 @@ NSString *const KXBSessionExpired   = @"sessionExpired";
     self.httpManager.requestSerializer.timeoutInterval = 60.f;
     
     [self.httpManager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
-    [[self class] setHeaderField];
+    [self setHeaderField];
     if ([path hasPrefix:@"/"]) {
         path = [path substringFromIndex:1];
     }
-    NSMutableDictionary *temp = [NetworkClient commonParamsWithMethod:@"POST" path:path params:allParams];
+    NSMutableDictionary *temp = [self commonParamsWithMethod:@"POST" path:path params:allParams];
     AFHTTPRequestOperation *op = [self.httpManager POST:path parameters:temp constructingBodyWithBlock:request.block success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [NetworkClient analysisServerDateTimeWithResponse:operation.response];
+        [self analysisServerDateTimeWithResponse:operation.response];
         HPResponseEntity *res = [MTLJSONAdapter modelOfClass:[HPResponseEntity class] fromJSONDictionary:responseObject error:nil];
-        if ([NetworkClient isSuccessResponse:res]){
+        if ([self isSuccessResponse:res]){
             if (success)
                 success(res);
         }else{
-            NSError *error = [NetworkClient errorForResponse:res];
-            if (failure && [NetworkClient shouldForwardError:error])
+            NSError *error = [self errorForResponse:res];
+            if (failure && [self shouldForwardError:error])
                 failure(error);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -509,11 +508,11 @@ NSString *const KXBSessionExpired   = @"sessionExpired";
     [self.httpManager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
     self.httpManager.requestSerializer.timeoutInterval = 60.f;
     [self.httpManager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
-    [[self class] setHeaderField];
+    [self setHeaderField];
     if ([path hasPrefix:@"/"]) {
         path = [path substringFromIndex:1];
     }
-    NSMutableDictionary *temp = [NetworkClient commonParamsWithMethod:@"POST" path:path params:allParams];
+    NSMutableDictionary *temp = [self commonParamsWithMethod:@"POST" path:path params:allParams];
     AFHTTPRequestOperation *op = [self.httpManager POST:path parameters:temp constructingBodyWithBlock:request.block success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (success)
             success(responseObject);
@@ -535,7 +534,7 @@ NSString *const KXBSessionExpired   = @"sessionExpired";
     if ([URLString hasPrefix:@"/"]) {
         URLString = [URLString substringFromIndex:1];
     }
-    NSMutableDictionary *temp = [NetworkClient commonParamsWithMethod:@"GET" path:URLString params:parameters];
+    NSMutableDictionary *temp = [self commonParamsWithMethod:@"GET" path:URLString params:parameters];
     [temp addEntriesFromDictionary:temp];
     AFHTTPRequestOperation *op = [manager GET:URLString parameters:temp success:success failure:failure];
     return op;
@@ -550,7 +549,7 @@ NSString *const KXBSessionExpired   = @"sessionExpired";
     if ([URLString hasPrefix:@"/"]) {
         URLString = [URLString substringFromIndex:1];
     }
-    NSMutableDictionary *temp = [NetworkClient commonParamsWithMethod:@"POST" path:URLString params:parameters];
+    NSMutableDictionary *temp = [self commonParamsWithMethod:@"POST" path:URLString params:parameters];
     [temp addEntriesFromDictionary:temp];
     AFHTTPRequestOperation *op = [manager POST:URLString parameters:temp success:success failure:failure];
     return op;
@@ -561,13 +560,13 @@ NSString *const KXBSessionExpired   = @"sessionExpired";
 - (AFHTTPRequestOperation*)rawPostWithPath:(NSString*)path params:(id)params success:(HPSuccess)success failure:(HPFailure)failure
 {
     AFHTTPRequestOperationManager *manager = self.httpManager;
-    [NetworkClient setHeaderField];
+    [self setHeaderField];
 
     if ([path hasPrefix:@"/"]) {
         path = [path substringFromIndex:1];
     }
     
-    NSMutableDictionary *temp = [NetworkClient commonParamsWithMethod:@"POST" path:path params:params];
+    NSMutableDictionary *temp = [self commonParamsWithMethod:@"POST" path:path params:params];
     NSError * error;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:temp options:NSJSONWritingPrettyPrinted error:&error];
     NSMutableURLRequest *request = [manager.requestSerializer requestWithMethod:@"POST" URLString:[NetworkClient urlForString:path].absoluteString parameters:nil error:nil];
@@ -577,17 +576,17 @@ NSString *const KXBSessionExpired   = @"sessionExpired";
     [request setHTTPBody:jsonData];
 
     AFHTTPRequestOperation *op = [manager HTTPRequestOperationWithRequest:request success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nullable responseObject) {
-        [NetworkClient analysisServerDateTimeWithResponse:operation.response];
+        [self analysisServerDateTimeWithResponse:operation.response];
 
         
         HPResponseEntity *res = [MTLJSONAdapter modelOfClass:[HPResponseEntity class] fromJSONDictionary:responseObject error:nil];
         res.op = operation;
-        if ([NetworkClient isSuccessResponse:res]){
+        if ([self isSuccessResponse:res]){
             if (success)
                 success(res);
         }else{
-            NSError *error = [NetworkClient errorForResponse:res];
-                if (failure && [NetworkClient shouldForwardError:error])
+            NSError *error = [self errorForResponse:res];
+                if (failure && [self shouldForwardError:error])
                     failure(error);
         }
     } failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {

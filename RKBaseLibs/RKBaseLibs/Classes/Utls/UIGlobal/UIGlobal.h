@@ -27,8 +27,6 @@
 
 + (void)showMessage:(NSString*)message;
 + (void)showMessage:(NSString *)message inView:(UIView *)view;
-+ (void)showError:(NSError *)error;
-+ (void)showError:(NSError *)error inView:(UIView *)view;
 
 + (MBProgressHUD*)showHudForView:(UIView*)view animated:(BOOL)animated;
 + (MBProgressHUD *)showHudForView:(UIView *)view tip:(NSString *)tip animated:(BOOL)animated;

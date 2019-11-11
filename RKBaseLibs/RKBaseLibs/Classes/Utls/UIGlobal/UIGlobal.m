@@ -238,56 +238,6 @@
     [hud hide:YES afterDelay:2.f];
 }
 
-+ (void)showError:(NSError *)error
-{
-    [UIGlobal showError:error inView:nil];
-}
-
-+ (void)showError:(NSError *)error inView:(UIView *)view
-{
-    //        NSArray *strs = [[error localizedDescription] componentsSeparatedByString:@"。"];
-    //        NSString *msg = [strs firstObject];
-    //        if (msg.length == 0)
-    //            msg = [NSString stringWithFormat:@"未知错误(%ld)", (long)error.code];
-    //        return [UIGlobal showMessage:msg];
-    if (!view) {
-        view = [UIApplication sharedApplication].windows.firstObject;
-    }
-    NSDictionary * userInfo = [NSDictionary checkDictionary:error.userInfo];
-    NSString * flag = userInfo[KXBSessionExpired];
-    if (flag && [flag integerValue] == 1) {
-//        [UIGlobal showAlertWithTitle:@"温馨提示" message:[NSString checkString:error.localizedDescription] customizationBlock:^(DLAVAlertView *alertView) {
-//            
-//        } completionBlock:^(DLAVAlertView *alertView, NSInteger buttonIndex) {
-//            
-//        } cancelButtonTitle:@"确定" otherButtonTitles:nil];
-    }
-    else if ([NetworkClient isCustomErrorFromServer:error])
-    {
-        [[UIApplication sharedApplication] resignFirstResponder];
-        return [UIGlobal showMessage:[error localizedDescription] inView:view];
-    }
-    else
-    {
-        if ([error code] == NSURLErrorCancelled)
-        {
-            //取消网络请求
-            return;
-        }
-        else if ([error code] == NSURLErrorTimedOut)
-        {
-            [[UIApplication sharedApplication] resignFirstResponder];
-            return [UIGlobal showMessage:HPTextForKey(@"请求超时") inView:view];
-        }
-        else
-        {
-            [[UIApplication sharedApplication] resignFirstResponder];
-            return [UIGlobal showMessage:HPTextForKey(@"网络不给力，请检查网络！") inView:view];
-        }
-    }
-}
-
-
 + (MBProgressHUD*)showHudForView:(UIView *)view animated:(BOOL)animated
 {
 //    return [UIGlobal showHudForView:view tip:@"正在努力加载中..." animated:YES];

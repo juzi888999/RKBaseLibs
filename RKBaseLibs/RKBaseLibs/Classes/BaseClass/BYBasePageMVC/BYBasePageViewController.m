@@ -346,7 +346,7 @@
             [UIGlobal hideHudForView:self.view animated:NO];
             if (error) {
                 [self didFailLoadData];
-                [UIGlobal showError:error inView:self.view];
+                [self showError:error inView:self.view];
             }else{
                 [self didFinishLoadData];
             }
@@ -388,12 +388,17 @@
             [UIGlobal hideHudForView:self.view animated:NO];
             if (error) {
                 [self didFailLoadData];
-                [UIGlobal showError:error inView:self.view];
+                [self showError:error inView:self.view];
             }else{
                 [self didFinishLoadData];
             }
         }
     } more:NO refresh:YES];
+}
+
+- (void)showError:(NSError *)error inView:(UIView *)view
+{
+    
 }
 
 - (void)pullDownRefresh
@@ -421,7 +426,7 @@
             [self endRefreshing];
             if (error) {
                 [self didFailLoadData];
-                [UIGlobal showError:error inView:self.view];
+                [self showError:error inView:self.view];
             }else{
                 [self didFinishLoadData];
             }
@@ -441,7 +446,7 @@
         if (self) {
             if (error) {
                 [self didFailLoadData];
-                [UIGlobal showError:error inView:self.view];
+                [self showError:error inView:self.view];
             }else{
                 [self didFinishLoadData];
             }

@@ -59,7 +59,7 @@
         uploadReq.localUrl = [NSURL URLWithString:filePath];
         return [[NetworkClient sharedInstance] uploadFileWithRequest:uploadReq path:nil progress:nil success:^(HPResponseEntity * responseObject) {
             
-            if ([NetworkClient isSuccessResponse: responseObject]) {
+            if ([self isSuccessResponse: responseObject]) {
             }
             
         } failure:^(NSError *error) {

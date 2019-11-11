@@ -26,7 +26,6 @@
 {
     static NSArray *cityList = nil;
     if (nil == cityList) {
-//        [[NetworkClient sharedInstance] getArea];
         cityList = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"area" ofType:@"plist"]];
         
     }
