@@ -32,7 +32,7 @@ PODS:
   - FMDB/standard (2.6.2)
   - GCDTimer (1.1.0)
   - GTMBase64 (1.0.1)
-  - IQKeyboardManager (6.4.0)
+  - IQKeyboardManager (6.5.4)
   - JHChainableAnimations (2.0.2)
   - Mantle (1.5.4):
     - Mantle/extobjc (= 1.5.4)
@@ -107,6 +107,8 @@ PODS:
   - YYKit (1.0.9):
     - YYKit/no-arc (= 1.0.9)
   - YYKit/no-arc (1.0.9)
+  - ZLPhotoBrowser (3.1.2):
+    - SDWebImage
 
 DEPENDENCIES:
   - 320Categories (~> 0.2.2)
@@ -138,6 +140,7 @@ DEPENDENCIES:
   - YCDownloadSession/Core (~> 2.0.3)
   - YCDownloadSession/Mgr (~> 2.0.3)
   - YYKit (~> 1.0.9)
+  - ZLPhotoBrowser
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -152,7 +155,6 @@ SPEC REPOS:
     - FMDB
     - GCDTimer
     - GTMBase64
-    - IQKeyboardManager
     - JHChainableAnimations
     - Mantle
     - Masonry
@@ -168,8 +170,10 @@ SPEC REPOS:
     - YCDownloadSession
     - YYKit
   trunk:
+    - IQKeyboardManager
     - SAMKeychain
     - UIButton-LXLayoutExt
+    - ZLPhotoBrowser
 
 SPEC CHECKSUMS:
   320Categories: ffc525e93e87c2991feb0bcdf036b0e87cb65a5d
@@ -183,7 +187,7 @@ SPEC CHECKSUMS:
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
   GCDTimer: 5837a5d70a464f86cbc9c56d75efc68f7e7c2fb8
   GTMBase64: f0f91be06a7a20b84c8e4fee30c0430395091d82
-  IQKeyboardManager: fcef267266379c003181fc3592f6bdb8bf4db839
+  IQKeyboardManager: 72b359cd7e777e3a984cedbe05f8da45320cbb63
   JHChainableAnimations: b6fe3fae7e728d71eaa9491bc6f77c30ee121fc4
   Mantle: 60acd0cd363e27d945bda0a6b8e90577112d28f3
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
@@ -200,7 +204,8 @@ SPEC CHECKSUMS:
   XMLDictionary: f9f51601ba76678b594ab485f2b00ec1fed23724
   YCDownloadSession: a95e2449c6d01af8ba0d5977ce79a9f596f4245d
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
+  ZLPhotoBrowser: 7e88434918366af98f8ebbaf5b94206985812ed6
 
-PODFILE CHECKSUM: d713ad6e780015c8094f9c1c14e1fe487d2ca11e
+PODFILE CHECKSUM: 1f32a26c90012f556a014a130e76a1940c6dda67
 
 COCOAPODS: 1.8.4

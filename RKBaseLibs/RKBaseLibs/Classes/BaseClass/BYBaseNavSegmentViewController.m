@@ -230,6 +230,7 @@
     [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:view cache:YES];
     [UIView commitAnimations];
 }
+
 - (void)startAni:(NSString *)aniID {
     NSLog(@"%@ start",aniID);
 }

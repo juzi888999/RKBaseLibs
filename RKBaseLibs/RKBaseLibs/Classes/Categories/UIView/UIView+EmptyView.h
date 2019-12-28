@@ -16,8 +16,8 @@
 @property (strong,nonatomic) UIView * by_defaultRequestFailureView;
 @property (strong,nonatomic) UIView * by_customRequestFailureView;
 
-@property (copy,nonatomic) void(^by_emptyViewTapBlock)();
-@property (copy,nonatomic) void(^by_requestFailureTapBlock)() ;
+@property (copy,nonatomic) void(^by_emptyViewTapBlock)(void);
+@property (copy,nonatomic) void(^by_requestFailureTapBlock)(void) ;
 
 - (void)by_showEmptyViewInCenter:(BOOL)show;
 - (void)by_showEmptyViewInCenter:(BOOL)show withFrame:(CGRect)frame;

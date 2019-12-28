@@ -6,6 +6,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BaseViewController.h"
+
 //#import "XBTPTool.h"
 
 #define HPTextForKey(a) [[HPTheme shareInstance] textForKey:a]
@@ -34,6 +36,7 @@
 @interface HPTheme : NSObject
 
 + (instancetype)shareInstance;
+@property (copy,nonatomic) void(^applyNavigationBarThemeBlock)(BaseViewController * viewController);
 
 - (UIColor*)colorForKey:(NSString*)key;
 - (NSString*)textForKey:(NSString*)key;

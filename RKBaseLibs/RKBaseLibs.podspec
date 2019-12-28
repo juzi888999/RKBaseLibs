@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "RKBaseLibs"
-  spec.version      = "1.0.32"
+  spec.version      = "1.0.39"
   spec.summary      = "app的Object-C基础框架"
 
   # This description is used to generate tags and improve search results.
@@ -94,12 +94,14 @@ Pod::Spec.new do |spec|
   # spec.source_files  = "RKBaseLibs/RKBaseLibs/Classes/*.{h,m}", "RKBaseLibs/RKBaseLibs/Classes/**/*.{h,m}","RKBaseLibs/RKBaseLibs/Classes/**/**/*.{h,m}","RKBaseLibs/RKBaseLibs/Classes/**/**/**/*.{h,m}","RKBaseLibs/RKBaseLibs/Classes/**/**/**/**/*.{h,m}"
   # spec.exclude_files = "RKBaseLibs/Exclude"
   # spec.prefix_header_file = "RKBaseLibs/RKBaseLibs/Classes/Configration/RKPrefixHeader.pch"
+  # spec.resources = "RKBaseLibs/RKBaseLibs/Classes/ThirdPart/**/*.bundle","RKBaseLibs/Classes/ThirdPart/**/**/*.bundle","RKBaseLibs/RKBaseLibs/Classes/ThirdPart/**/**/**/*.bundle","RKBaseLibs/RKBaseLibs/Classes/ThirdPart/NumberCalculate/resource/*.png","RKBaseLibs/RKBaseLibs/Classes/ThirdPart/MWPhotoBrowser/Assets/*.png,RKBaseLibs/RKBaseLibs/Resource/*.png"
 
 #本地仓库使用这个
   spec.source       = { :git => "", :tag => spec.version.to_s}
   spec.source_files  = "RKBaseLibs/Classes/*.{h,m}", "RKBaseLibs/Classes/**/*.{h,m}","RKBaseLibs/Classes/**/**/*.{h,m}","RKBaseLibs/Classes/**/**/**/*.{h,m}","RKBaseLibs/Classes/**/**/**/**/*.{h,m}"
   spec.exclude_files = "RKBaseLibs/Exclude"
   spec.prefix_header_file = "RKBaseLibs/Classes/Configration/RKPrefixHeader.pch"
+  spec.resources = "RKBaseLibs/Classes/ThirdPart/**/*.bundle","RKBaseLibs/Classes/ThirdPart/**/**/*.bundle","RKBaseLibs/Classes/ThirdPart/**/**/**/*.bundle","RKBaseLibs/Classes/ThirdPart/NumberCalculate/resource/*.png","RKBaseLibs/Classes/ThirdPart/MWPhotoBrowser/Assets/*.png,RKBaseLibs/RKBaseLibs/Resource/*.png"
 
   # spec.source_files  = "Classes", "Classes/**/*.{h,m}"
   # spec.exclude_files = "Classes/Exclude"
@@ -117,7 +119,6 @@ Pod::Spec.new do |spec|
 
   # spec.resource  = "icon.png"
   # spec.resources = "Resources/*.png"
-  spec.resources = "RKBaseLibs/RKBaseLibs/RKBaseLibs/Classes/ThirdPart/**/*.bundle","RKBaseLibs/RKBaseLibs/Classes/ThirdPart/**/**/*.bundle","RKBaseLibs/RKBaseLibs/Classes/ThirdPart/**/**/**/*.bundle","RKBaseLibs/RKBaseLibs/Classes/ThirdPart/NumberCalculate/resource/*.png","RKBaseLibs/RKBaseLibs/Classes/ThirdPart/MWPhotoBrowser/Assets/*.png"
 
   # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
@@ -130,7 +131,7 @@ Pod::Spec.new do |spec|
 
   # spec.framework  = "SomeFramework"
   spec.compiler_flags = '-fno-modules'
-  spec.frameworks  = "UIKit","Foundation"
+  spec.frameworks  = "UIKit","Foundation","AVFoundation"
 
   # spec.library   = "iconv"
   # spec.libraries = "iconv", "xml2"
@@ -145,7 +146,7 @@ Pod::Spec.new do |spec|
   spec.requires_arc = true
 
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-
+  spec.dependency 'ZLPhotoBrowser'
   spec.dependency 'DACircularProgress', '~> 2.3.1'
   spec.dependency 'AFNetworking', '~> 2.6'
   spec.dependency 'MBProgressHUD','1.1.0'

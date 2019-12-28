@@ -30,7 +30,7 @@
 - (NSString*)serverPort;
 
 - (NSString*)lastVersion;
-- (NSString*)setLastVersion:(NSString *)version;
+- (void)setLastVersion:(NSString *)version;
 
 - (BOOL)serverReady;
 - (NSInteger)devenv;

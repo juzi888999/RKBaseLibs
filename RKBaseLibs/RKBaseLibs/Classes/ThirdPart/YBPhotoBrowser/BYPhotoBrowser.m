@@ -8,52 +8,75 @@
 
 #import "BYPhotoBrowser.h"
 
-@interface BYPhotoBrowser()<MWPhotoBrowserDelegate>
+@interface BYPhotoBrowser()///<MWPhotoBrowserDelegate>
 @property (strong,nonatomic) NSMutableArray * photos;
+
 @end
 @implementation BYPhotoBrowser
 
--(instancetype)initWithPhotos:(NSArray *)photos
+-(instancetype)init
 {
     if (self = [super init]) {
-        self.photos = [NSMutableArray arrayWithCapacity:[NSArray checkArray:photos].count];
-        
-        for (id image in photos) {
-            if ([image isKindOfClass:[UIImage class]]) {
-                [self.photos addObject:[MWPhoto photoWithImage:image]];
-            }else if ([image isKindOfClass:[NSString class]]){
-                if ([image hasSuffix:@".mp4"]) {
-                     [self.photos addObject:[MWPhoto videoWithURL:[NetworkClient imageUrlForString:image]]];
-                }else{
-                    [self.photos addObject:[MWPhoto photoWithURL:[NetworkClient imageUrlForString:image]]];
-                }
-            }else if ([image isKindOfClass:[NSURL class]]){
-                NSURL * url = (NSURL *)image;
-                if ([url.absoluteString hasSuffix:@".mp4"]) {
-                    [self.photos addObject:[MWPhoto videoWithURL:url]];
-                }else{
-                    [self.photos addObject:[MWPhoto photoWithURL:image]];
-                }
-            }else if ([image isKindOfClass:[MWPhoto class]]){
-                [self.photos addObject:image];
-            }
-        }
-        MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
-        self.browser = browser;
-        // Set options
-        browser.displayActionButton = NO; // Show action button to allow sharing, copying, etc (defaults to YES)
-        browser.displayNavArrows = NO; // Whether to display left and right nav arrows on toolbar (defaults to NO)
-        browser.displaySelectionButtons = NO; // Whether selection buttons are shown on each image (defaults to NO)
-        browser.zoomPhotosToFill = NO; // Images that almost fill the screen will be initially zoomed to fill (defaults to YES)
-        browser.alwaysShowControls = NO; // Allows to control whether the bars and controls are always visible or whether they fade away to show the photo full (defaults to NO)
-        browser.enableGrid = YES; // Whether to allow the viewing of all the photo thumbnails on a grid (defaults to YES)
-        browser.startOnGrid = NO; // Whether to start on the grid of thumbnails instead of the first photo (defaults to NO)
-        browser.autoPlayOnAppear = YES; // Auto-play first video
-        browser.enableSwipeToDismiss = NO;
+        self.currentPhotoIndex = 0;
     }
     return self;
 }
 
+-(void)setupPhotos:(NSArray *)photos
+{
+    self.photos = [NSMutableArray arrayWithCapacity:[NSArray checkArray:photos].count];
+    for (id obj in photos) {
+        NSDictionary * dic = nil;
+        if ([obj isKindOfClass:[UIImage class]]) {
+            dic = GetDictForPreviewPhoto(obj, ZLPreviewPhotoTypeUIImage);
+            [self.photos addObject:dic];
+        }else if ([obj isKindOfClass:[NSString class]]){
+            if ([obj hasSuffix:@".mp4"]) {
+                 dic = GetDictForPreviewPhoto([NSURL URLWithString:obj], ZLPreviewPhotoTypeURLVideo);
+                 [self.photos addObject:dic];
+            }else{
+                dic = GetDictForPreviewPhoto(obj, ZLPreviewPhotoTypeURLImage);
+                [self.photos addObject:dic];
+            }
+        }else if ([obj isKindOfClass:[NSURL class]]){
+            NSURL * url = (NSURL *)obj;
+            if ([url.absoluteString hasSuffix:@".mp4"]) {
+                dic = GetDictForPreviewPhoto(obj, ZLPreviewPhotoTypeURLVideo);
+                [self.photos addObject:dic];
+            }else{
+                dic = GetDictForPreviewPhoto(obj, ZLPreviewPhotoTypeURLImage);
+                [self.photos addObject:dic];
+            }
+        }else if ([obj isKindOfClass:[NSDictionary class]]){
+            [self.photos addObject:obj];
+        }
+    }
+}
+
+- (void)showInViewController:(UIViewController *)viewController photos:(NSArray *)photos animated:(BOOL)flag completion:(void (^)(NSArray * photos))completion
+{
+    [self setupPhotos:photos];
+    ZLPhotoActionSheet *ac = [[ZLPhotoActionSheet alloc] init];
+    self.sheet = ac;
+    if (self.configBlock) {
+        self.configBlock(self.sheet);
+    }
+    //如调用的方法无sender参数，则该参数必传
+    ac.sender = viewController;
+    [ac previewPhotos:self.photos index:self.currentPhotoIndex hideToolBar:YES complete:^(NSArray * _Nonnull nPhotos) {
+        if (completion) {
+            completion(nPhotos);
+        }
+    }];
+}
+
+- (void)showInViewController:(UIViewController *)viewController photos:(NSArray *)photos animated:(BOOL)flag configBlock:(void (^ __nullable)(ZLPhotoActionSheet *sheet))configBlock completion:(void (^ __nullable)(NSArray * photos))completion
+{
+    self.configBlock = configBlock;
+    [self showInViewController:viewController photos:photos animated:flag completion:completion];
+}
+
+/*
 - (void)showInViewController:(UIViewController *)viewController animated: (BOOL)flag completion:(void (^ __nullable)(void))completion
 {
     BaseNavigationViewController *navi = [[BaseNavigationViewController alloc] initWithRootViewController:self.browser];
@@ -77,6 +100,7 @@
         [self.browser dismissViewControllerAnimated:YES completion:nil];
     }
 }
+*/
 
 -(void)dealloc
 {

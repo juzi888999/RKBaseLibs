@@ -47,7 +47,6 @@
 #import "UIView+GetViewController.h"
 #import "UIView+EmptyView.h"
 #import "UIView+Helper.h"
-
 #import "UIViewController+Util.h"
 
 #import "NetworkClient.h"
@@ -65,6 +64,7 @@
 
 
 #import "BaseNavigationViewController.h"
+#import "HPPagingViewController.h"
 #import "BYBasePageViewController.h"
 #import "HPBaseTableViewCell.h"
 #import "BaseCollectionViewCell.h"

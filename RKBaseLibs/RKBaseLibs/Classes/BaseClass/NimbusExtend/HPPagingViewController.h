@@ -7,8 +7,8 @@
 //
 
 #import "BaseViewController.h"
-#import <Nimbus/NIPagingScrollView.h>
-#import <Nimbus/NIPagingScrollView+Subclassing.h>
+#import "NIPagingScrollView.h"
+#import "NIPagingScrollView+Subclassing.h"
 
 @interface HPPagingViewController : BaseViewController
 

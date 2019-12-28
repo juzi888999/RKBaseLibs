@@ -7,12 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MWPhotoBrowser.h"
+#import <ZLPhotoBrowser/ZLPhotoBrowser.h>
+
+NS_ASSUME_NONNULL_BEGIN
 
 @interface BYPhotoBrowser : NSObject
 
-@property (strong,nonatomic) MWPhotoBrowser * browser;
-@property (copy,nonatomic) void(^photoBrowserDidClose)(MWPhotoBrowser * browser);
--(instancetype)initWithPhotos:(NSArray *)photos;
-- (void)showInViewController:(UIViewController *)viewController animated: (BOOL)flag completion:(void (^)(void))completion;
+@property (strong,nonatomic) ZLPhotoActionSheet * sheet;
+@property (copy,nonatomic) void(^photoBrowserDidClose)(void);
+@property (assign,nonatomic) NSInteger currentPhotoIndex;
+@property (copy,nonatomic) void (^configBlock)(ZLPhotoActionSheet *sheet);
+
+- (void)showInViewController:(UIViewController *)viewController photos:(NSArray *)photos animated:(BOOL)flag completion:(void (^)(NSArray * photos))completion;
+
+- (void)showInViewController:(UIViewController *)viewController photos:(NSArray *)photos animated:(BOOL)flag configBlock:(void (^ __nullable)(ZLPhotoActionSheet *sheet))configBlock completion:(void (^ __nullable)(NSArray * photos))completion;
 @end
+
+NS_ASSUME_NONNULL_END

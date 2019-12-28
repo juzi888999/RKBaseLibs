@@ -120,7 +120,7 @@
 
 - (void)setLastLoginUserName:(NSString *)name
 {
-    [[NSUserDefaults standardUserDefaults] setValue:name forKey:KPreferenceServiceLastLoginUserName];
+    [[NSUserDefaults standardUserDefaults] setValue:[NSString checkString:name] forKey:KPreferenceServiceLastLoginUserName];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 

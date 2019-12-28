@@ -15,7 +15,7 @@
 + (UIImage *)adjustImageWithImage:(UIImage *)image;
 + (UIImage *) imageWithImageSimple:(UIImage*)image scaledToSize:(CGSize) newSize;
 // 获取视频第一帧
-+ (UIImage*) getVideoPreViewImage:(NSURL *)path;
+//+ (UIImage*) getVideoPreViewImage:(NSURL *)path;
 
 @end
 

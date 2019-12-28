@@ -69,6 +69,7 @@ typedef enum {
  Default is [UIFont fontWithName:@"STHeitiSC-Light" size:18.0f]
  */
 @property (nonatomic, strong) UIFont *font;
+@property (nonatomic, strong) UIFont *selectedFont;
 
 /*
  Text color for segments names when segmented control type is `HMSegmentedControlTypeText`

@@ -515,19 +515,8 @@ static NSString *bNavigationBarIsTransparentKey = @"bNavigationBarIsTransparentK
 
 - (void)setNavigationStyle
 {
-    [self.navigationController.navigationBar setShadowImage:nil];
-    if ([self.navigationController.visibleViewController isEqual:self] || self.navigationController.presentedViewController) {
-        if (self.by_navigationBarStyle == BYNavigationBarStyleMain) {
-            [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:HPColorForKey(@"main")] forBarMetrics:UIBarMetricsDefault];
-            [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-            [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:HPBoldFontWithSize(20), NSForegroundColorAttributeName:[UIColor whiteColor]}];
-            
-        }else if (self.by_navigationBarStyle == BYNavigationBarStyleWhite){
-            
-            [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:HPColorForKey(@"#ffffff")] forBarMetrics:UIBarMetricsDefault];
-            [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-            [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:HPBoldFontWithSize(20), NSForegroundColorAttributeName:[UIColor blackColor]}];
-        }
+    if ([HPTheme shareInstance].applyNavigationBarThemeBlock) {
+        [HPTheme shareInstance].applyNavigationBarThemeBlock(self);
     }
 }
 

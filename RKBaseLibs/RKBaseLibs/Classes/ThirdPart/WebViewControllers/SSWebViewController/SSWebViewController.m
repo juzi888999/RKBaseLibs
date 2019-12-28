@@ -39,7 +39,7 @@ static NSString * const ObserveKeyPathEstimatedProgress = @"estimatedProgress";
     [super viewDidLoad];
     
     if (!self.hiddenSafariBtn) {
-        [self addRightNavigationBarButtonImage:@"video_safari" Title:nil block:^(UIButton *rightNavBtn, SSWebViewController * viewController) {
+        [self addRightNavigationBarButtonImage:@"icon_safari" Title:nil block:^(UIButton *rightNavBtn, SSWebViewController * viewController) {
             [OpenURLManager openUrl:[NSString checkString:viewController.url]];
         }];
     }
@@ -382,10 +382,10 @@ didFailProvisionalNavigation:(null_unspecified WKNavigation *)navigation withErr
 - (void)showPhotoBrowserWithIndex:(NSInteger)index photos:(NSArray *)photos
 {
     if (!self.photoBrowser && photos) {
-        self.photoBrowser = [[BYPhotoBrowser alloc] initWithPhotos:photos];
+        self.photoBrowser = [[BYPhotoBrowser alloc] init];
     }
-    [self.photoBrowser.browser setCurrentPhotoIndex:index];
-    [self.photoBrowser showInViewController:self.navigationController animated:YES completion:nil];
+    self.photoBrowser.currentPhotoIndex = index;
+    [self.photoBrowser showInViewController:self.navigationController photos:photos animated:YES completion:nil];
 }
 
 - (CGFloat)getFitingHeight

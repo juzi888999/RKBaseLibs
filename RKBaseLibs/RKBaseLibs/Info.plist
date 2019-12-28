@@ -60,5 +60,13 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>CFBundleAllowMixedLocalizations</key>
+	<true/>
+	<key>Photo Library Usage Description</key>
+	<string>相册使用权限描述</string>
+	<key>Camera Usage Description</key>
+	<string>相机使用权限描述</string>
+	<key>Microphone Usage Description</key>
+	<string>麦克风使用权限描述</string>
 </dict>
 </plist>

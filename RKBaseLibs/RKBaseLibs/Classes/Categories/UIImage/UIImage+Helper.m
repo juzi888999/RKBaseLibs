@@ -57,7 +57,7 @@
  * 压缩图片分辨率(宽高限制的最大值1920) 按比例裁切图片
  * 图片质量压缩0.8
  */
-+ (UIImage *) imageWithImageSimple:(UIImage*)image scaledToSize:(CGSize) maxSize
++ (UIImage *)imageWithImageSimple:(UIImage*)image scaledToSize:(CGSize) maxSize
 {
     if (image.size.width > image.size.height)
     {
@@ -86,21 +86,21 @@
     return image;
 }
 
-// 获取视频第一帧
-+ (UIImage*) getVideoPreViewImage:(NSURL *)path
-{
-    AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:path options:nil];
-    AVAssetImageGenerator *assetGen = [[AVAssetImageGenerator alloc] initWithAsset:asset];
-    
-    assetGen.appliesPreferredTrackTransform = YES;
-    CMTime time = CMTimeMakeWithSeconds(0.0, 600);
-    NSError *error = nil;
-    CMTime actualTime;
-    CGImageRef image = [assetGen copyCGImageAtTime:time actualTime:&actualTime error:&error];
-    UIImage *videoImage = [[UIImage alloc] initWithCGImage:image];
-    CGImageRelease(image);
-    return videoImage;
-}
+//// 获取视频第一帧
+//+ (UIImage*)getVideoPreViewImage:(NSURL *)path
+//{
+//    AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:path options:nil];
+//    AVAssetImageGenerator *assetGen = [[AVAssetImageGenerator alloc] initWithAsset:asset];
+//
+//    assetGen.appliesPreferredTrackTransform = YES;
+//    CMTime time = CMTimeMakeWithSeconds(0.0, 600);
+//    NSError *error = nil;
+//    CMTime actualTime;
+//    CGImageRef image = [assetGen copyCGImageAtTime:time actualTime:&actualTime error:&error];
+//    UIImage *videoImage = [[UIImage alloc] initWithCGImage:image];
+//    CGImageRelease(image);
+//    return videoImage;
+//}
 @end
 
 

@@ -309,11 +309,13 @@
             
             if (self.selectedSegmentIndex == idx) {
                 titleLayer.foregroundColor = self.selectedTextColor.CGColor;
-                titleLayer.transform = CATransform3DScale(titleLayer.transform, 1.1, 1.1, 1);
-//                UIFont * font = HPBoldFontWithSize(self.font.pointSize);
-                UIFont * font = HPFontWithSize(self.font.pointSize);
+                CGFloat k = 1.f;
+                if (self.selectedFont) {
+                    k = self.selectedFont.pointSize/self.font.pointSize;
+                }
+                titleLayer.transform = CATransform3DScale(titleLayer.transform, k, k, 1);
+                UIFont * font = self.selectedFont;
                 titleLayer.font = (__bridge CFTypeRef)(font.fontName);
-
             } else {
                 titleLayer.foregroundColor = self.textColor.CGColor;
                 titleLayer.transform = CATransform3DIdentity;
